@@ -1,10 +1,6 @@
 title: Yingfei's Blog
-author:
-  name: Yingfei Yan
-  email: yingfeiyan1996@gmail.com
-
-# The `>` after `description:` means to ignore line-breaks until next key.
-# If you want to omit the line-break after the end of text, use `>-` instead.
+author: Yingfei Yan
+email: yingfeiyan1996@gmail.com
 description: >
   Write what I learnt, found and thought.
 
@@ -15,6 +11,8 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-redirect-from
 
 # Theme-specific settings
 
@@ -53,3 +51,25 @@ minima:
 # Set to `true` to show excerpts on the homepage.
 #
 # show_excerpts: false
+
+date_format: "%b %-d, %Y"
+  date_format_short: "%b %-d"
+
+header_pages:
+- about.md
+- posts.md
+- github.md
+
+footer_icons:
+- username: aterenin/minima-reboot/
+  url: https://github.com/aterenin/minima-reboot/
+  icon: icon-github.svg
+
+paginate: 5
+
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - minima-reboot.gemspec

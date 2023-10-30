@@ -1,6 +1,6 @@
 title: Yingfei's Blog
   author: Yingfei
-  email: xxx
+  email: 123@gmail.com
 description: >
   Write what I learnt, found and thought.
 
@@ -12,7 +12,6 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-redirect-from
-  - jekyll-paginate
 
 # Theme-specific settings
 
@@ -53,9 +52,3 @@ header_pages:
 
 # Set to `true` to show excerpts on the homepage.
 # show_excerpts: false
-paginate: 5
-
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - minima-reboot.gemspec

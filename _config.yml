@@ -9,7 +9,7 @@ description: >
 theme: minima
 
 plugins:
-  # - jekyll-feed
+  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-redirect-from
 
@@ -51,4 +51,4 @@ header_pages:
 - posts.md
 
 # Set to `true` to show excerpts on the homepage.
-show_excerpts: false
+# show_excerpts: false

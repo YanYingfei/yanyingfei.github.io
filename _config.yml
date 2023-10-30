@@ -1,5 +1,5 @@
 title: Yingfei's Blog
-author: Yingfei Yan
+author: Yingfei
 email: xxx
 description: >
   Write what I learnt, found and thought.
@@ -53,4 +53,4 @@ header_pages:
 
 # Set to `true` to show excerpts on the homepage.
 #
-# show_excerpts: false
+ show_excerpts: false

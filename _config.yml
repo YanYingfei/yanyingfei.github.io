@@ -54,9 +54,3 @@ header_pages:
 # Set to `true` to show excerpts on the homepage.
 #
  show_excerpts: false
-
- 
-footer_icons:
-- username: aterenin/minima-reboot/
-  url: https://github.com/aterenin/minima-reboot/
-  icon: icon-github.svg

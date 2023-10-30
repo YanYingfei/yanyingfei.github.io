@@ -46,6 +46,10 @@ minima:
 #
 # header_pages:
 #   - about.md
+header_pages:
+- about.md
+- posts.md
+
 
 # Set to `true` to show excerpts on the homepage.
 #

@@ -11,7 +11,6 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-feed
   - jekyll-redirect-from
 
 # Theme-specific settings
@@ -47,29 +46,11 @@ minima:
 #
 # header_pages:
 #   - about.md
+header_pages:
+- about.md
+- posts.md
+
 
 # Set to `true` to show excerpts on the homepage.
 #
 # show_excerpts: false
-
-date_format: "%b %-d, %Y"
-  date_format_short: "%b %-d"
-
-header_pages:
-- about.md
-- posts.md
-- github.md
-
-footer_icons:
-- username: aterenin/minima-reboot/
-  url: https://github.com/aterenin/minima-reboot/
-  icon: icon-github.svg
-
-paginate: 5
-
-markdown: kramdown
-
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - minima-reboot.gemspec

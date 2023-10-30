@@ -13,7 +13,8 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-redirect-from
-
+  - jekyll-paginate
+  
 # Theme-specific settings
 
 minima:
@@ -53,3 +54,7 @@ header_pages:
 
 # Set to `true` to show excerpts on the homepage.
 # show_excerpts: false
+
+paginate: 5
+
+markdown: kramdown

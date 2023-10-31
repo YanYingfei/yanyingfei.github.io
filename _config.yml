@@ -57,4 +57,5 @@ header_pages:
 
 # paginate: 5
 
-markdown: kramdown
+kramdown:
+  math_engine: katex

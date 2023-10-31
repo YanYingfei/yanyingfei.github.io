@@ -1,10 +1,3 @@
----
-layout: post
-title: "Arithmetisation: CCS"
-categories: snark
-author: Yingfei
-meta: "Springfield"
----
 <head>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     <script type="text/x-mathjax-config">
@@ -16,6 +9,14 @@ meta: "Springfield"
         });
     </script>
 </head>
+
+---
+layout: post
+title: "Arithmetisation: CCS"
+categories: snark
+author: Yingfei
+meta: "Springfield"
+---
 
 Recently, I read the new paper KiloNova [<a href="#ref1">1</a>], where the authors propose a PCD scheme based on the CCS relation. Before KiloNova, I would like to list the representations of arithmetic circuits: CCS (and its variants), R1CS, Plonkish and AIR.
 

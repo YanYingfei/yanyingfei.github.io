@@ -56,3 +56,7 @@ header_pages:
 # show_excerpts: false
 
 # paginate: 5
+
+markdown: kramdown
+kramdown:
+    input: GFM

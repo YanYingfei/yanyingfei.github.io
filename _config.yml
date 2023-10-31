@@ -56,6 +56,3 @@ header_pages:
 # show_excerpts: false
 
 # paginate: 5
-
-kramdown:
-  math_engine: katex

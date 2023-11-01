@@ -40,7 +40,7 @@ Below I put the definition of Plonkish from [<a href="#ref2">2</a>].
 - a vector of constants called selectors $s \in \mathbb{F}^e$;
 - a set of $m$ constraints. Each constraint $i$ is specified via a vector $T_i$ of length $t$, with entries in the set $[n+e-1]$. $T_i$ is interpreted as specifying $t$ entries of a purported satisfying assignment $\vec{z}$ to feed into $g$.
 A Plonkish instance consists of public input and output $x \in \mathbb{F}^\ell$. A Plonkish witness consists of a vector $w \in \mathbb{F}^{n-\ell}$. A Plonkish structure-instance tuple $(\mathcal{S}, x)$ is satisfied by a Plonkish witness $w$ if:
-$$\forall i\in[m], g(z[T_i[1]], \dots, z[T_i[t]]) = 0,$$
+\begin{equation} \forall i\in[m], g(z[T_i[1]], \dots, z[T_i[t]]) = 0,\end{equation}
 where $\vec{z} = (w, x, s) \in \mathbb{F}^{n+e}.$
 
 Generally, PLONK's arithmetization [<a href="#ref3">3</a>] (Plonkish) has two main components, namely, the gate constraints with respect to a vector of selectors $s$ and the copy constraints with repsect to a permutation $\varphi$. 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: About
 permalink: /about/
 ---
 
@@ -8,4 +8,4 @@ Hi, I'm Yingfei, a PhD student in cryptography. My research area is zero-knowled
 
 I built this blog to record and share what I learned, found, and thought.
 
-Be free to contact me at: yingfeiyan1996@gmail.com.
+Feel free to contact me at: yingfeiyan1996@gmail.com.

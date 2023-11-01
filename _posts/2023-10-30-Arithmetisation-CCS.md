@@ -14,7 +14,7 @@ The customizable constraint cystems are proposed by Srinath Setty et al in [<a h
 
 ### CCS
 *Definition (CCS)*. An $$\mathcal{R}_{CCS}$$ structure $$\mathcal{S}$$ consists of:
-- size bounds $m,n,N,\ell,t,q,d \in \mathbb{N}$, where $n>\ell$.
+- size bounds $$m,n,N,\ell,t,q,d \in \mathbb{N}$$, where $$n>\ell$$.
 - a sequence of matrices $\{M_j \in \mathbb{F}^{m\times n}\}_{j\in[t]}$ with at most $N = \Omega(\max(m,n))$ non-zero enrtiyes in total.
 - a sequence of $q$ multisets $\{S_i\}_{i\in [q]}$ , where the elements in each multiset $S_i$ is from $\{1, \dots, t\}$ and the cardinality of each multiset is at most $d$.
 - a sequence of q constants $\{c_i\}_{i∈[q]}$, where each constant is from $\mathbb{F}$.

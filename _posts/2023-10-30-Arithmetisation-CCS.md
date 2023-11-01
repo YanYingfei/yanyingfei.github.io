@@ -23,7 +23,7 @@ $$ {\sum}_{i\in[q]} c_i~ \circ_{j \in S_i}~ (M_j \cdot \vec{z}) = \vec{0}, \tag{
 where $z = (w, 1, \mathsf{io}) ∈ \mathbb{F}^n$, $M_j · \vec{z}$ denotes matrix-vector multiplication, $\circ$ denotes the Hadamard product between vectors, and $\vec{0}$ is an $m$-sized vector with entries equal to the additive identity in $\mathbb{F}$.
 
 ### R1CS
-*Definition (R1CS)*. An R1CS structure $\mathcal{S}$ consists of size bounds $m,n,N,\ell$, where $n>\ell$ and three matrices $A,B,C\in \mathbb{F}^{m \times n}$ with at most $N = \Omega(\max(m,n))$ non-zero entries in total. 
+*Definition (R1CS)*. An R1CS structure $\mathcal{S}$ consists of size bounds $m,n,N,\ell$, where $n>\ell$ and three matrices $A,B,C\in \mathbb{F}^{m \times n}$ with at most $N = \Omega(\max(m,n))$ non-zero entries in total. 
 An R1CS instance consists of public input and output $x \in \mathbb{F}^\ell$. An R1CS witness consists of a vector $w \in \mathbb{F}^{n-\ell-1}$. 
 An R1CS structure-instance tuple $(\mathcal{S}, x)$ is satisfied by an R1CS witness $w$ if 
 $$(A \cdot \vec{z}) \circ (B \cdot \vec{z}) - C \cdot \vec{z} = \vec{0} \tag{2},$$
@@ -34,7 +34,7 @@ Following the above definitions, one can easily do the transformation from $R1CS
 ### Plonkish
 Below I put the definition of Plonkish from [<a href="#ref2">2</a>]. 
 
-*Dfinition (Plonkish).* A Plonkish structure $\mathcal{S}$ consists of: 
+*Definition (Plonkish).* A Plonkish structure $\mathcal{S}$ consists of: 
 - size bounds $m, n, \ell, t, q, d, e, \in \mathbb{N}$;
 - a multivariate polynomial $g$ in $t$ variables, where $g$ is expressed as a sum of $q$ monomials and each monomial has a total degree at most $d$;
 - a vector of constants called selectors $s \in \mathbb{F}^e$;

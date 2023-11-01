@@ -21,19 +21,21 @@
 
   {% include head-includes.html %}
 
-  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<--!  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
    <script <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+-->
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
       inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-      
+      displayMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: ture,
+      processEnvironments: true,
     },
-    processEscapes: ture,
-    processEnvironments: true,
+
     TeX: {
       Macros: {
         bra: ["\\langle{#1}|", 1],

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Arithmetisation: CCS"
+title: "Arithmetization: CCS"
 categories: snark
 author: Yingfei
 meta: "Springfield"
 ---
 
-Recently, I read the new paper KiloNova [<a href="#ref1">1</a>], where the authors propose a PCD scheme based on the CCS relation. Before KiloNova, I would like to list the representations of arithmetic circuits: CCS (and its variants), R1CS, Plonkish and AIR.
+Recently, I read the new paper KiloNova [<a href="#ref1">1</a>], where the authors propose a PCD scheme based on the CCS relation. Before KiloNova, I would like to list the representations of arithmetic circuits: CCS (and its variants), R1CS, Plonkish, and AIR.
 
 ## Customizable Constraint Systems
 
-The customizable constraint cystems are proposed by Srinath Setty et al in [<a href="#ref2">2</a>] to generalize the different arithmetizations.  Here is the formal definiation of CCS relations.
+The customizable constraint systems are proposed by Srinath Setty et al in [<a href="#ref2">2</a>] to generalize the different arithmetizations. Here is the formal definition of CCS relations.
 
 ### CCS
 *Definition (CCS)*. An $\mathcal{R}_{CCS}$ structure $\mathcal{S}$ consists of:
@@ -45,10 +45,10 @@ where $\vec{z} = (w, x, s) \in \mathbb{F}^{n+e}.$
 
 Generally, PLONK's arithmetization [<a href="#ref3">3</a>] (Plonkish) has two main components, namely, the gate constraints with respect to a vector of selectors $s$ and the copy constraints with repsect to a permutation $\varphi$. 
 
-In the above definition, the copy constraints are replaced by ''deduplicated'' gate constraints. For example, we have a copy constraint  $c_0 = a_1$ and a gate constraint $g_0$ with resprect to $c_0$. To represent this equation, we define a new gate constraint $g_0'$ by "deduplicating" the gate constraint $g_0$ and replacing $c_0$ with $a_1$.
+In the above definition, the copy constraints are replaced by ''deduplicated'' gate constraints. For example, we have a copy constraint  $c_0 = a_1$ and a gate constraint $g_0$ with respect to $c_0$. To represent this equation, we define a new gate constraint $g_0'$ by "deduplicating" the gate constraint $g_0$ and replacing $c_0$ with $a_1$.
 
 ### AIR
-*Dfinition (AIR).* A AIR structure $\mathcal{S}$ consists of: 
+*Definition (AIR).* A AIR structure $\mathcal{S}$ consists of: 
 - size bounds $n, q, d \in \mathbb{N}$ and an even $t$;
 - a multivariate polynomial $g$ in $t$ variables, where $g$ is expressed as a sum of $q$ monomials and each monomial has a total degree at most $d$.
 An AIR instance consists of public input and output $x \in \mathbb{F}^t$, and the witness consists of a vector $w \in \mathbb{F}^{(m-1)\cdot t/2}$.  

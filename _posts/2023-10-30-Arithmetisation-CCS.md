@@ -54,6 +54,8 @@ In the above definition, the copy constraints are replaced by ''deduplicated'' g
 An AIR instance consists of public input and output $x \in \mathbb{F}^t$, and the witness consists of a vector $w \in \mathbb{F}^{(m-1)\cdot t/2}$.  
 Parse $x=(x_0, x_1)$ and set $\vec{z} = (x_0, w, x_1) \in \mathbb{F}^{(m+1)\cdot t/2}$, where $x_0, x_1 \in \mathbb{F}^{t/2}$. Parse $z= (z_0, \dots, z_m)$, where each $z_i \in \mathbb{F}^{t/2}$ for $i \in [m+1]$.  
 An AIR structure-instance tuple $(\mathcal{S}, x)$ is satisfied by the witness $w$ if:
+\begin{equation} \forall i \in \{1,\dots, m\}, g(z_{i-1}, z_i, z_{i+1}) = 0. \end{equation}
+
 $$\forall i \in \{1,\dots, m\}, g(z_{i-1}, z_i, z_{i+1}) = 0.$$
 
 ---

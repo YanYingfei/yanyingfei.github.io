@@ -8,4 +8,4 @@ Hi, I'm Yingfei, a PhD student in cryptography. My research area is zero-knowled
 
 I built this blog to record and share what I learned, found, and thought.
 
-Be free to contact me at yingfeiyan1996@gmail.com.
+Be free to contact me at: yingfeiyan1996@gmail.com.

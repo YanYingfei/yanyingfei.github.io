@@ -7,7 +7,7 @@ meta: "Springfield"
 ---
 
 Recently, I read the new paper KiloNova [<a href="#ref1">1</a>], where the authors propose a PCD scheme based on the CCS relation. Before KiloNova, I would like to list the representations of arithmetic circuits: CCS (and its variants), R1CS, Plonkish, and AIR.
-
+<!--more-->
 ## Customizable Constraint Systems
 
 The customizable constraint systems are proposed by Srinath Setty et al in [<a href="#ref2">2</a>] to generalize the different arithmetizations. Here is the formal definition of CCS relations.

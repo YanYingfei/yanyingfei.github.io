@@ -5,6 +5,8 @@ $layout-responsive-nav-cutoff: 768px !default;
 
 body {
   background-color: $layout-color-background;
+  font-size: 18px;
+  font-family: 'JetBrainsMono Nerd Font Mono', monospace;
 }
 
 #nav-header {

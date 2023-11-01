@@ -15,9 +15,9 @@ The customizable constraint cystems are proposed by Srinath Setty et al in [<a h
 ### CCS
 *Definition (CCS)*. An $\mathcal{R}_{CCS}$ structure $\mathcal{S}$ consists of:
 - size bounds $m,n,N,\ell,t,q,d \in \mathbb{N}$, where $n>\ell$.
-- a sequence of matrices ${\{M_j \in \mathbb{F}^{m\times n}\}}_{j\in[t]} $ with at most $N = \Omega(\max(m,n))$ non-zero enrtiyes in total.
+- a sequence of matrices ${ \{ M_j \in \mathbb{F}^{m\times n} \} }_{j\in[t]} $ with at most $N = \Omega(\max(m,n))$ non-zero enrtiyes in total.
 - a sequence of $q$ multisets ${\{S_i\}}_{i \in [q]}$, where the elements in each multiset $S_i$ is from $\{1, \dots, t\}$ and the cardinality of each multiset is at most $d$.
-- a sequence of #q$ constants ${\{c_i\}}_{i∈[q]}$, where each constant is from $\mathbb{F}$.
+- a sequence of #q$ constants ${ \{ c_i \} }_{i∈[q]}$, where each constant is from $\mathbb{F}$.
 An $\mathcal{R}_{CCS}$ instance (structure-context tuple $(\mathcal{S}, \mathsf{io})$ is satisfied by an  $\mathcal{R}_{CCS}$ witness $w \in \mathbb{F}^{n-\ell-1}$ and the public input and output $\mathsf{io} \in \mathbb{F}^\ell$, if
 $$\sum_{i\in[q]} c_i~ \circ_{j \in S_i}~ (M_j \cdot \vec{z}) = \vec{0}, \tag{1}$$
 where $z = (w, 1, \mathsf{io}) ∈ \mathbb{F}^n$, $M_j · \vec{z}$ denotes matrix-vector multiplication, $\circ$ denotes the Hadamard product between vectors, and $\vec{0}$ is an $m$-sized vector with entries equal to the additive identity in $\mathbb{F}$.

@@ -56,8 +56,6 @@ Parse $x=(x_0, x_1)$ and set $\vec{z} = (x_0, w, x_1) \in \mathbb{F}^{(m+1)\cdot
 An AIR structure-instance tuple $(\mathcal{S}, x)$ is satisfied by the witness $w$ if:
 \begin{equation} \forall i \in \{1,\dots, m\}, g(z_{i-1}, z_i, z_{i+1}) = 0. \end{equation}
 
-$$\forall i \in \{1,\dots, m\}, g(z_{i-1}, z_i, z_{i+1}) = 0.$$
-
 ---
 1. <p name = "ref1"> Tianyu Zheng, Shang Gao, Yu Guo and Bin Xiao, KiloNova: Non-Uniform PCD with Zero-Knowledge Property from Generic Folding Schemes, Cryptology ePrint Archive, Paper 2023/1579.</p>
 2. <p name = "ref2"> Srinath Setty, Justin Thaler and Riad Wahby, Customizable constraint systems for succinct arguments, Cryptology ePrint Archive, Paper 2023/552.</p>

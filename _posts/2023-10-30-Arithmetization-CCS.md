@@ -60,6 +60,13 @@ An AIR structure-instance tuple $(\mathcal{S}, x)$ is satisfied by the witness $
 \begin{equation} \forall i \in \{1,\dots, m\}, g(z_{i-1}, z_i, z_{i+1}) = 0. \end{equation}
 
 
+### Discussion
+From my point of view, CCS is not a 'new' arithmetization of circuits but is a generalization of current arithmetizations. 
+This kind of generalization might not effect much for specific circuits, because different circuits have their own suitable arithmetizations. So I'm not sure whether it has a more important role in SNARKs. 
+It seems that PCD and folding schemes from CCS can combine different arithmetizations and thus can support all the arithmetic circuits since CCS can be converted to R1CS, Plonkish, and AIR. 
+However, as any arithmetic circuit can be represented to R1CS, if there exists a PCD supporting R1CS, then this PCD could also support all the arithmetic circuits.
+
+
 ---
 1. <p name = "ref1"> Tianyu Zheng, Shang Gao, Yu Guo and Bin Xiao, KiloNova: Non-Uniform PCD with Zero-Knowledge Property from Generic Folding Schemes, Cryptology ePrint Archive, Paper 2023/1579.</p>
 2. <p name = "ref2"> Srinath Setty, Justin Thaler and Riad Wahby, Customizable constraint systems for succinct arguments, Cryptology ePrint Archive, Paper 2023/552.</p>

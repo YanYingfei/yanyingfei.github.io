@@ -23,7 +23,9 @@ Chase and Lysyanskaya [<a href="#ref1">1</a>] give two ways to define the securi
 First, we give security in the UC model. We need to define two functionalities.
 
 The signature functionality is defined in the following figure. 
+
 <p><img src="/functionality-sig.png"><.p>
+  
 where the first messages $KeyGen$, $Sign$, and $Verify$ of each tuple indicate the name of the request,  and the last messages $\mathsf{Sign}$ and/or $\mathsf{Verify}$ are the algorithms (ITM, Involutory Turing Machines, $f(f(x))=x$). 
 
 For honest signers and verifier, the functionality generates the correct transcripts for both parties. 
@@ -35,6 +37,7 @@ As for the adversary, the functionality captures the correctness and unforgeabil
 The ideal signature functionality captures the above items in $\mathsf{KeyGen}$, $\mathsf{Sign}$ and $\mathsf{Verify}$, respectively.
 
 Similarly, the functionality of SoK is defined as follows:
+
 <p><img src="/functionality-sim-sok.png"></p>
 
 The setup procedure outputs algorithms $\mathsf{Simsign}$ and $\mathsf{Extract}$ for the adversary.

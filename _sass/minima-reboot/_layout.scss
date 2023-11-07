@@ -62,13 +62,7 @@ body {
 
 img{
  max-width: 100%;
- max-height: 100%;
- height:auto;
- zoom:expression( function(e) {
-if(e.width>e.height) {if (e.width>128) { e.height = e.height*(128 /e.width); e.width=128; }}
-else {if (e.height>128) { e.width = e.width*(128 /e.height); e.height=128; }}
-e.style.zoom = '1';     }(this));
- overflow:hidden; 
+ height: auto; width: auto\9;
 }
 
 

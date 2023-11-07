@@ -24,7 +24,7 @@ First, we give security in the UC model. We need to define two functionalities.
 
 The signature functionality is defined in the following figure. 
 
-<p><img src="/functionality-sig.png" alt="functionality-sig" width="1000" height="500"></p>
+<p><img src="/functionality-sig.png" alt="functionality-sig" class="responsive-image"></p>
   
 where the first messages $KeyGen$, $Sign$, and $Verify$ of each tuple indicate the name of the request,  and the last messages $\mathsf{Sign}$ and/or $\mathsf{Verify}$ are the algorithms (ITM, Involutory Turing Machines, $f(f(x))=x$). 
 
@@ -38,7 +38,8 @@ The ideal signature functionality captures the above items in $\mathsf{KeyGen}$,
 
 Similarly, the functionality of SoK is defined as follows:
 
-<p><img src="/functionality-sim-sok.png" alt="functionality-sok" width="1000" height="500"></p>
+<p><img src="/functionality-sim-sok.png" alt="functionality-sok" class="responsive-image"> </p>
+
 
 The setup procedure outputs algorithms $\mathsf{Simsign}$ and $\mathsf{Extract}$ for the adversary.
 - $\sigma' \gets \mathsf{Simsign}(\mathsf{pp}, x, \tau, m)$: This PPT algorithm takes the the public parameter $\mathsf{pp}$ (sometimes implicitly), the instance $x$, a trapdoor $\tau$ (optionally) and a message $m$ as input and outputs a simulated signature $\sigma'$.

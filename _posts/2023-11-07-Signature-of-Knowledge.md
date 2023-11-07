@@ -58,7 +58,7 @@ The *signature verification* part of $F_{SOK}$ accepts signatures $(m, x, \sigma
 #### Game Style.
 In this section, we show the game-based security. In a word, a SoK is SimExt-secure if it is correct, simulatable, and sim-extractable. The formal definition is given below.
 
-*Definition (SimExt-security).* Let $L$ be the language defined by a polynomial-time Turing machine $M_L$ as explained above, such that all witnesses for $x \in L$ are of known polynomial length $p(|x|)$. Then ($\mathsf{Setup}$, $\mathsf{Sign}$, $\mathsf{Verify}$) constitute a SimExt-secure signature of knowledge of a witness for $L$, for message space $\{ M_\lambda \}$ if the following properties hold:
+*Definition (SimExt-security).* Let $L$ be the language defined by a polynomial-time Turing machine $M_L$ as explained above, such that all witnesses for $x \in L$ are of known polynomial length $p(\vert x \vert)$. Then ($\mathsf{Setup}$, $\mathsf{Sign}$, $\mathsf{Verify}$) constitute a SimExt-secure signature of knowledge of a witness for $L$, for message space $\{ M_\lambda \}$ if the following properties hold:
 
 - **Correctness**: There exists a negligible function $\nu$ such that for all $x \in L$, valid witnesses $w$ for $x$ (i.e. witnesses $w$ such that $M_L(x,w) =1$) and $m \in M_\lambda$ 
 $\begin{equation} Pr[\mathsf{pp} \gets \mathsf{Setup}(R); \sigma \gets \mathsf{Sign}(\mathsf{pp},x, w, m):  \mathsf{Verify}(\mathsf{pp}, x, m, \sigma) = 1] = 1 - \nu{\lambda} \end{equation}$

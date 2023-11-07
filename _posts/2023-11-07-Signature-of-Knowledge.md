@@ -24,7 +24,7 @@ First, we give security in the UC model. We need to define two functionalities.
 
 The signature functionality is defined in the following figure. 
 
-<p><img src="/functionality-sig.png"><.p>
+<p><img src="/functionality-sig.png"></p>
   
 where the first messages $KeyGen$, $Sign$, and $Verify$ of each tuple indicate the name of the request,  and the last messages $\mathsf{Sign}$ and/or $\mathsf{Verify}$ are the algorithms (ITM, Involutory Turing Machines, $f(f(x))=x$). 
 

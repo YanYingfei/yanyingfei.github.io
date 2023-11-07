@@ -38,6 +38,8 @@ The ideal signature functionality captures the above items in $\mathsf{KeyGen}$,
 Similarly, the functionality of SoK defines as follows:
 <p><img src="/pics/functionality-sim-sok.png" alt="functionality-sim-sok"/></p>
 
+![functionality-sim-sok](pics/functionality-sim-sok.png)
+
 The setup procedure outputs algorithms $\mathsf{Simsign}$ and $\mathsf{Extract}$ for the adversary.
 - $\sigma' \gets \mathsf{Simsign}(\mathsf{pp}, x, \tau, m)$: This PPT algorithm takes the the public parameter $\mathsf{pp}$ (sometimes implicitly), the instance $x$,  a trapdoor $\tau$ (optionally) and a message $m$ as input and outputs a simulated signature $\sigma'$.
 - $w' \gets \mathsf{Extract} (\mathsf{pp}, x, m, \sigma)$ 

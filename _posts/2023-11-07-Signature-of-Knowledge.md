@@ -38,7 +38,7 @@ The ideal signature functionality captures the above items in $\mathsf{KeyGen}$,
 
 Similarly, the functionality of SoK is defined as follows:
 
-<p><img src="/pics/functionality-sim-sok.png" alt="functionality-sok" width="1000"> </p>
+<p><img src="/_posts/pics/functionality-sim-sok.png" alt="functionality-sok" width="1000"> </p>
 
 
 The setup procedure outputs algorithms $\mathsf{Simsign}$ and $\mathsf{Extract}$ for the adversary.

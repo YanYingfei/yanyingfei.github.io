@@ -24,7 +24,7 @@ Chase and Lysyanskaya [<a href="#ref1">1</a>] give two ways to define the securi
 First we give security in the UC model. We need to define two functionality.
 
 The signature functionality is defined as in the following figure. 
-<p><img src="/pics/functionality-sig.png" alt="functionality-sig"/></p>
+<p><img src="./_posts/pics/functionality-sig.png" alt="functionality-sig"/></p>
 where the first messages $KeyGen$, $Sign$ and $Verify$ of each tuple indicates the name of the request,  and the last messages $\mathsf{Sign}$ and/or $\mathsf{Verify}$ are the algorithms (ITM, Involutory Turing Machines, $f(f(x))=x$). 
 
 For honest signer and verifier, the functionality generates the correct transcirpts for both parties. 
@@ -36,9 +36,7 @@ As for the adversary, the functionality captures the correctness and unforgeabil
 The ideal signature functionality captures the above items in $\mathsf{KeyGen}$, $\mathsf{Sign}$ and $\mathsf{Verify}$, respectively.
 
 Similarly, the functionality of SoK defines as follows:
-<p><img src="/pics/functionality-sim-sok.png" alt="functionality-sim-sok"/></p>
-
-![functionality-sim-sok](pics/functionality-sim-sok.png)
+<p><img src="./_posts/pics/functionality-sim-sok.png" alt="functionality-sim-sok"/></p>
 
 The setup procedure outputs algorithms $\mathsf{Simsign}$ and $\mathsf{Extract}$ for the adversary.
 - $\sigma' \gets \mathsf{Simsign}(\mathsf{pp}, x, \tau, m)$: This PPT algorithm takes the the public parameter $\mathsf{pp}$ (sometimes implicitly), the instance $x$,  a trapdoor $\tau$ (optionally) and a message $m$ as input and outputs a simulated signature $\sigma'$.

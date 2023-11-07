@@ -24,7 +24,7 @@ Chase and Lysyanskaya [<a href="#ref1">1</a>] give two ways to define the securi
 First, we give security in the UC model. We need to define two functionalities.
 
 The signature functionality is defined in the following figure. 
-<p><img src="./functionality-sig.png" alt="functionality-sig"/></p>
+<p><img src="/functionality-sig.png"/></p>
 where the first messages $KeyGen$, $Sign$, and $Verify$ of each tuple indicate the name of the request,  and the last messages $\mathsf{Sign}$ and/or $\mathsf{Verify}$ are the algorithms (ITM, Involutory Turing Machines, $f(f(x))=x$). 
 
 For honest signers and verifier, the functionality generates the correct transcripts for both parties. 
@@ -36,7 +36,7 @@ As for the adversary, the functionality captures the correctness and unforgeabil
 The ideal signature functionality captures the above items in $\mathsf{KeyGen}$, $\mathsf{Sign}$ and $\mathsf{Verify}$, respectively.
 
 Similarly, the functionality of SoK is defined as follows:
-<p><img src="./functionality-sim-sok.png" alt="functionality-sim-sok"/></p>
+<p><img src="/functionality-sim-sok.png"/></p>
 
 The setup procedure outputs algorithms $\mathsf{Simsign}$ and $\mathsf{Extract}$ for the adversary.
 - $\sigma' \gets \mathsf{Simsign}(\mathsf{pp}, x, \tau, m)$: This PPT algorithm takes the the public parameter $\mathsf{pp}$ (sometimes implicitly), the instance $x$,  a trapdoor $\tau$ (optionally) and a message $m$ as input and outputs a simulated signature $\sigma'$.
@@ -60,13 +60,13 @@ for $L$, for message space $\{ M_\lambda \}$ if the following properties hold:
 - **Correctness**: There exists a negligible function $\nu$ such that for all $x \in L$, valid witnesses $w$ for $x$ (i.e. witnesses $w$ such that $M_L(x,w) =1$) and $m \in M_\lambda$ 
 $\begin{equation} Pr[\mathsf{pp} \gets \mathsf{Setup}(R); \sigma \gets \mathsf{Sign}(\mathsf{pp},x, w, m):  \mathsf{Verify}(\mathsf{pp}, x, m, \sigma) = 1] = 1 - \nu{\lambda} \end{equation}$
 - **Simulatability** There exists a polynomial time simulator consisting of algorithms $\mathsf{Simsetup}$ and $\mathsf{Simsign}$ such that for all probabilistic polynomial-time adversaries $\mathcal{A}$ there exists a negligible functions $\nu$ such that for all polynomials $f$, for all $\lambda$, for all auxiliary input $$s \in \{0,1\}^{f{\lambda}},$$
-$$\begin{equation} | \begin{aligned} Pr[(\mathsf{pp},\tau) \gets \mathsf{Simsetup}(\lambda); b\gets \mathcal{A}^{\mathsf{Simsign}(\mathsf{pp}, \tau,\cdot)}(s,\mathsf{pp}): b=1] \\ - Pr[\mathsf{pp} \gets \mathsf{Setup}(\lambda); b\gets \mathcal{A}^{\mathsf{Sign}(\mathsf{pp}, \cdot)}(s,\mathsf{pp}): b=1]\end{aligned} |= \nu{\lambda}, \end{equation}$$
+$\begin{equation} | \begin{aligned} Pr[(\mathsf{pp},\tau) \gets \mathsf{Simsetup}(\lambda); b\gets \mathcal{A}^{\mathsf{Simsign}(\mathsf{pp}, \tau,\cdot)}(s,\mathsf{pp}): b=1] \\ - Pr[\mathsf{pp} \gets \mathsf{Setup}(\lambda); b\gets \mathcal{A}^{\mathsf{Sign}(\mathsf{pp}, \cdot)}(s,\mathsf{pp}): b=1]\end{aligned} |= \nu{\lambda}, \end{equation}$
 
 where $\tau$ is the additional trapdoor value that the simulator needs to simulate the signatures without knowing a witness.
 - **Sim-Extraction** In addition to $(\mathsf{Simsetup, Simsign})$, there exists an extractor algorithm $\mathsf{Extract}$ such that for all probabilistic polynomial time adversaries $\mathcal{A}$ there exists a negligible functions $\nu$ such that for all polynomials $f$,  for all $\lambda$, for all auxiliary input $$s \in \{0,1\}^{f{\lambda}},$$ 
-$$\begin{equation} Pr\left[\begin{aligned} (\mathsf{pp},\tau) \gets \mathsf{Simsetup}(\lambda); (M_L,x,m,\sigma) \gets \mathcal{A}^{\mathsf{Simsign}(\mathsf{pp}, \tau,\cdot)}; \\
+$\begin{equation} Pr\left[\begin{aligned} (\mathsf{pp},\tau) \gets \mathsf{Simsetup}(\lambda); (M_L,x,m,\sigma) \gets \mathcal{A}^{\mathsf{Simsign}(\mathsf{pp}, \tau,\cdot)}; \\
 w \gets \mathsf{Extract}(\mathsf{pp}, \tau, M_L, x, m, \sigma):\\ M_L(x,w) \vee (M_L, x, m) \in Q^{+} \vee \lnot \mathsf{Verify}(\mathsf{pp},M_L, x, m, \sigma)
-\end{aligned} \right] = 1 - \nu(\lambda) \end{equation},$$
+\end{aligned} \right] = 1 - \nu(\lambda) \end{equation},$
 
 where $Q^+$ denotes the query tape which lists all the previous successful queries $\mathcal{A}$ has sent to the oracle $\mathsf{Simsign}$, i.e. all those queries $(M_L, x, m)$ which were sent with some valid witness $w$.
 

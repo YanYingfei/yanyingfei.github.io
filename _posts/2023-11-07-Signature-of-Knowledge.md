@@ -105,7 +105,7 @@ This leads to the first construction [<a href="#ref2">2</a>], which applies an S
 	1. return $\mathsf{Z.Verify}(crs, (K, H_K(m), x), \pi).$
 
 In the above scheme, SE-NIZK $\Pi$ proves the relation: 
-$\begin{equation} R=\{((K, h, x); w) : K \gets \{0,1\}^{\ell(\lambda)} \land h \gets \{0,1\}^{\ell(\lambda)} \land (x,w) \in M_L \}. \end{equation}$
+\begin{equation} R=\{((K, h, x); w) : K \gets \{0,1\}^{\ell(\lambda)} \land h \gets \{0,1\}^{\ell(\lambda)} \land (x,w) \in M_L \}. \end{equation}
 
 - $\mathsf{Simsetup}:$
 	1. $(crs, \tau) \gets \mathsf{Z.Setup}(\lambda).$
@@ -130,7 +130,7 @@ The second construction applies CPA secure dense encryption scheme $\mathsf{(Key
 	1. return $\mathsf{Z.Verify}(crs, (m, M_L, x,c,PK), \pi).$
 
 In the scheme, $\Pi$ proves the relation: 
-$\begin{equation} R=\{((m, M_L, x,c,PK); w) : c=\mathsf{Enc}(PK,(m,w),r) \land (x,w) \in M_L \}. \end{equation}$
+\begin{equation} R=\{((m, M_L, x,c,PK); w) : c=\mathsf{Enc}(PK,(m,w),r) \land (x,w) \in M_L \}. \end{equation}
 
 The security proofs refer to the corresponding literature.
 

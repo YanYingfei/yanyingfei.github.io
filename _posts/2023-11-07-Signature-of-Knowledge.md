@@ -9,12 +9,12 @@ In a traditional signature scheme, a signature $\sigma$ on a message $m$ is issu
 
 Yesterday I discussed the notion with my friend. Below I would like to record the discussion. 
 
-#### Definition
+### Definitions
 
 *Definition (Signature of Knowledge, SoK).*
 Let $\mathcal{R}$ be a relation generator and let $$\{M_\lambda \}_{\lambda \in \mathbb{N}}$$ be a sequence of message spaces. Then a SoK scheme consists of 3 algorithms: ($\mathsf{Setup}$, $\mathsf{Sign}$, $\mathsf{Verify}$).
 - $\mathsf{pp} \gets \mathsf{Setup} (R)$: This algorithm is a PPT algorithm which takes as input a relation $R \in \mathcal{R}_\lambda$ and returns public parameters $\mathsf{pp}$.
-- $\sigma \gets \mathsf{Sign}(\mathsf{pp},x, w, m):$ the signing algorithm is a PPT algorithm which takes as input the public parameters, a pair $(x,w) \in R$ and a message $m \in M_\lambda$ and returns a signature $\sigma$.
+- $\sigma \gets \mathsf{Sign}(\mathsf{pp},x, w, m):$ the signing algorithm is a PPT algorithm which takes as input the public parameters, a pair $(x,w) \in M_L$ and a message $m \in M_\lambda$ and returns a signature $\sigma$.
 - $0/1 \gets \mathsf{Verify}(\mathsf{pp}, x, m, \sigma)$: the verification algorithm is a deterministic polynomial time algorithm, which takes as input some public parameters $\mathsf{pp}$, an instance $x$, a message $m \in M_\lambda$, and a signature $\sigma$ and outputs a 1 or a 0 that indicates the signature is valid or not.
 
 #### Functionality for a SoK
@@ -79,9 +79,62 @@ Meanwhile, Sim-Extraction (SE) captures soundness (of a proof) and unforgeabilit
 - **Unforgeability**. Given the access to the signing orcale, the unforgeability requires that, without a signing key, an adversary cannot produce a valid signature. As we are talking about the SoK, the signing key is replaced by the witness $w$. Namely, either the output signature is invalid with high probability or the message is queried previously: \begin{equation} (M_L, x, m) \in Q^{+} \vee \lnot \mathsf{Verify}(\mathsf{pp},M_L, x, m, \sigma) = 1, \end{equation}
 - **Soundness**. Consider that the adversary outputs a valid signature (breaks the unforgeability). With high probability, then we can extract the witness $w$ of the instance $x$ such that $M_L(x,w) = 1$.
 
+#### Why Sim-ext?
 
+One can notice in the game sytle definition, the adversary is allowed to access a **sim-signing oracle**, while in a digital signature scheme, the adversary accesses to the real signing oracle. There are two ways to understand the sim-signing oracle. 
+- In a digital signature scheme, only the one with signing key (signer) can generate the valid signature. However in the SoK, anyone holds a witness $w$ to the statement $x$ can produce the signature. If we define an orcale that has the witnesses for all the statements, then such an oracle seems too powerful. 
+- As the output of simsign and sign are distinguishable, which is garuanteed by *simulatability*, it's safe to replace the signing oracle by sim-signing oracle. This is like we usually do in the secuirty proof of the unforgeability: construct a simulator that answers the signing queries without a signing key and prove the answer of simulator is indistinguish from that of a signing oracle.
 
+### The Construction
+I mixed the security notions of NIZK and SoK many times when introducing the deifinitions. In this part, I would like to show two constructions of SoK.
 
+I use the word "soundness" in the previous section. Actually, it is not accurate, only for understanding the notions. and should be "simulation extractability": 
+
+- **Simulation extractability** requires that one be able to extract a witness underling a valid proof even when the claim was created after seeing simulated signatures (or proofs).
+
+This leads to the first construction [<a href="#ref2">2</a>], which applies an SE-NIZK (sim-ext non-interactive zero-knowledge argument) $\Pi = (\mathsf{Z.Setup, Z.Prove, Z.Verify})$ and a collision-resistant hash-function $H(\cdot)$.  I describe the construction as follows.
+
+- $\mathsf{pp} \gets \mathsf{S.Setup}(\lambda):$  
+	1. $(crs, \tau) \gets \mathsf{Z.Setup}(\lambda).$
+	2. return $\mathsf{pp} = crs$.
+- $\sigma \gets \mathsf{S.Sign}(\mathsf{pp},x, w, m):$
+	1. $$K \gets \{0,1\}^{\ell(\lambda)}.$$
+	2. $\pi \gets \mathsf{Z.Prove} (crs, (K, H_K(m), x), w).$
+	3. return $\sigma = (K, \pi).$
+- $\mathsf{S.Verify}(\mathsf{pp}, x, m, \sigma)$
+	1. return $\mathsf{Z.Verify}(crs, (K, H_K(m), x), \pi).$
+
+In the above scheme, SE-NIZK $\Pi$ proves the relation: 
+$\begin{equation} R=\{((K, h, x); w) : K \gets \{0,1\}^{\ell(\lambda)} \land h \gets \{0,1\}^{\ell(\lambda)} \land (x,w) \in M_L \}. \end{equation}$
+
+- $\mathsf{Simsetup}:$
+	1. $(crs, \tau) \gets \mathsf{Z.Setup}(\lambda).$
+	2. return $\mathsf{pp} = (crs, \tau)$.
+- $\mathsf{Simsign}:$
+	1. $$K \gets \{0,1\}^{\ell(\lambda)}.$$
+	2. $\pi \gets \mathsf{Z.Simprove} (crs, \tau,(K, H_K(m), x)).$
+	3. return $\sigma = (K, \pi).$
+
+The second construction applies CPA secure dense encryption scheme $\mathsf{(KeyGen, Enc, Dec)}$ and simulation-sound non-interactive zero knowledge proofs $\Pi = (\mathsf{Z.Setup, Z.Prove, Z.Verify})$. I describe the construction as follows.
+
+- $\mathsf{pp} \gets \mathsf{S.Setup}(\lambda):$  
+	1. $PK \gets \mathsf{KeyGen}(\lambda).$
+	2. $(crs, \tau) \gets \mathsf{Z.Setup}(\lambda).$
+	3. return $\mathsf{pp} = (PK, crs)$.
+- $\sigma \gets \mathsf{S.Sign}(\mathsf{pp},x, w, m):$
+	1. sample $r \gets R$ from a randomness space.
+	2. $c=\mathsf{Enc}(PK,(m,w),r).$
+	3. $\pi \gets \mathsf{Z.Prove} (crs, (m, M_L, x,c,PK), w).$
+	4. return $\sigma = (c, \pi).$
+- $\mathsf{S.Verify}(\mathsf{pp}, x, m, \sigma)$
+	1. return $\mathsf{Z.Verify}(crs, (m, M_L, x,c,PK), \pi).$
+
+In the scheme, $\Pi$ proves the relation: 
+$\begin{equation} R=\{((m, M_L, x,c,PK); w) : c=\mathsf{Enc}(PK,(m,w),r) \land (x,w) \in M_L \}. \end{equation}$
+
+The security proofs refer to the corresponding literature.
 
 ---
 1. <p name = "ref1"> Melissa Chase and Anna Lysyanskaya. On Signature of Knowledge. Cryptology ePrint Archive, Paper 2006/184.</p>
+
+2. <p name = "ref2"> Jens Groth and Mary Maller. Snarky Signatures: Minimal Signatures of Knowledge from Simulation-Extractable SNARKs. Cryptology ePrint Archive, Paper 2017/540. </p>

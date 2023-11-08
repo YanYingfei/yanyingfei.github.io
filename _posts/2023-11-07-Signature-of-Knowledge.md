@@ -98,7 +98,7 @@ This leads to the first construction [<a href="#ref2">2</a>], which applies an S
 	1. $(crs, \tau) \gets \mathsf{Z.Setup}(\lambda).$
 	2. return $\mathsf{pp} = crs$.
 - $\sigma \gets \mathsf{S.Sign}(\mathsf{pp},x, w, m):$
-	1. $$K \gets \{0,1\}^{\ell(\lambda)}.$$
+	1. $ K \gets \{0,1\}^{\ell(\lambda)}. $
 	2. $\pi \gets \mathsf{Z.Prove} (crs, (K, H_K(m), x), w).$
 	3. return $\sigma = (K, \pi).$
 - $\mathsf{S.Verify}(\mathsf{pp}, x, m, \sigma)$
@@ -111,7 +111,7 @@ $\begin{equation} R=\{((K, h, x); w) : K \gets \{0,1\}^{\ell(\lambda)} \land h \
 	1. $(crs, \tau) \gets \mathsf{Z.Setup}(\lambda).$
 	2. return $\mathsf{pp} = (crs, \tau)$.
 - $\mathsf{Simsign}:$
-	1. $$K \gets \{0,1\}^{\ell(\lambda)}.$$
+	1. $ K \gets \{ 0,1 \}^{\ell(\lambda)}.$
 	2. $\pi \gets \mathsf{Z.Simprove} (crs, \tau,(K, H_K(m), x)).$
 	3. return $\sigma = (K, \pi).$
 

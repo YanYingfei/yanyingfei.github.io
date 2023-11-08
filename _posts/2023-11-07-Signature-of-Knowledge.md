@@ -88,9 +88,9 @@ One can notice in the game sytle definition, the adversary is allowed to access 
 ### The Construction
 I mixed the security notions of NIZK and SoK many times when introducing the deifinitions. In this part, I would like to show two constructions of SoK.
 
-I use the word "soundness" in the previous section. Actually, it is not accurate, only for understanding the notions. and should be "simulation extractability": 
+I use the word "soundness" in the previous section. Actually, it is not accurate, only for understanding the notions, and should be "simulation extractability": 
 
-- **Simulation extractability** requires that one be able to extract a witness underling a valid proof even when the claim was created after seeing simulated signatures (or proofs).
+- **Simulation extractability** requires that one be able to extract a witness underling a valid proof even when the statement was created after seeing simulated proofs.
 
 This leads to the first construction [<a href="#ref2">2</a>], which applies an SE-NIZK (sim-ext non-interactive zero-knowledge argument) $\Pi = (\mathsf{Z.Setup, Z.Prove, Z.Verify})$ and a collision-resistant hash-function $H(\cdot)$.  I describe the construction as follows.
 
@@ -126,7 +126,7 @@ The second construction applies CPA secure dense encryption scheme $\mathsf{(Key
 	2. $c=\mathsf{Enc}(PK,(m,w),r).$
 	3. $\pi \gets \mathsf{Z.Prove} (crs, (m, M_L, x,c,PK), w).$
 	4. return $\sigma = (c, \pi).$
-- $\mathsf{S.Verify}(\mathsf{pp}, x, m, \sigma)$
+- $\mathsf{S.Verify}(\mathsf{pp}, x, m, \sigma):$
 	1. return $\mathsf{Z.Verify}(crs, (m, M_L, x,c,PK), \pi).$
 
 In the scheme, $\Pi$ proves the relation: 

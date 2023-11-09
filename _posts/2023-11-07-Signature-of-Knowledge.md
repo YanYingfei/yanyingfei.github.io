@@ -105,7 +105,7 @@ This leads to the first construction [<a href="#ref2">2</a>], which applies an S
 	1. return $\mathsf{Z.Verify}(crs, (K, H_K(m), x), \pi).$
 
 In the above scheme, SE-NIZK $\Pi$ proves the relation: 
-\begin{equation} R=\{((K, h, x); w) : K \gets \{0,1\}^{\ell(\lambda)} \land h \gets \{0,1\}^{\ell(\lambda)} \land (x,w) \in M_L \}. \end{equation}
+$$\begin{equation} R=\{((K, h, x); w) : K \gets \{0,1\}^{\ell(\lambda)} \land h \gets \{0,1\}^{\ell(\lambda)} \land (x,w) \in M_L \}. \end{equation}$$
 
 - $\mathsf{Simsetup}:$
 	1. $(crs, \tau) \gets \mathsf{Z.Setup}(\lambda).$

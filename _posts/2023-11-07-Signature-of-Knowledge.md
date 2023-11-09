@@ -7,7 +7,7 @@ author: Yingfei
 
 In a traditional signature scheme, a signature $\sigma$ on a message $m$ is issued under a public key $PK$, and can be interpreted as follows: “The owner of the public key $PK$ and its corresponding secret key has signed message $m$.” In the signature of knowledge, we consider schemes that allow one to issue signatures on behalf of any NP statement, that can be interpreted as follows: “A person in possession of a witness $w$ to the statement that $x \in L$ has signed message $m$.” <!--more-->
 
-Yesterday I discussed the notion with my friend. Below I would like to record the discussion. 
+Yesterday I discussed the notion with my friend. Below I would like to record the discussion. I will give the detailded definition, and write two constructions by applying NIZK as a main building block. Besides, I recommend every beginner to read this paper [<a href="#ref1">1</a>], where you can find some connection between NIZK and SoK. Although it was written in 2006, the ideas and constructions inside are still as new as ever.
 
 ### Definitions
 

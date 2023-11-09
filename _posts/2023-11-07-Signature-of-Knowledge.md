@@ -130,6 +130,7 @@ The second construction applies CPA secure dense encryption scheme $\mathsf{(Key
 	1. return $\mathsf{Z.Verify}(crs, (m, M_L, x,c,PK), \pi).$
 
 In the scheme, $\Pi$ proves the relation: 
+
 $\begin{equation} R= \{ ((m, M_L, x,c,PK); w) : c=\mathsf{Enc}(PK,(m,w),r) \land (x,w) \in M_L \}. \end{equation}$
 
 The security proofs refer to the corresponding literature.

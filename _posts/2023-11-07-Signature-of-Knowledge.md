@@ -17,8 +17,6 @@ Let $\mathcal{R}$ be a relation generator and let $$\{M_\lambda \}_{\lambda \in 
 - $\sigma \gets \mathsf{Sign}(\mathsf{pp},x, w, m):$ the signing algorithm is a PPT algorithm which takes as input the public parameters, a pair $(x,w) \in M_L$ and a message $m \in M_\lambda$ and returns a signature $\sigma$.
 - $0/1 \gets \mathsf{Verify}(\mathsf{pp}, x, m, \sigma)$: the verification algorithm is a deterministic polynomial time algorithm, which takes as input some public parameters $\mathsf{pp}$, an instance $x$, a message $m \in M_\lambda$, and a signature $\sigma$ and outputs a 1 or a 0 that indicates the signature is valid or not.
 
-$111111$
-
 #### Functionality for a SoK
 Chase and Lysyanskaya [<a href="#ref1">1</a>] give two ways to define the security of a SoK: UC framework and security game. 
 
@@ -132,7 +130,7 @@ The second construction applies CPA secure dense encryption scheme $\mathsf{(Key
 	1. return $\mathsf{Z.Verify}(crs, (m, M_L, x,c,PK), \pi).$
 
 In the scheme, $\Pi$ proves the relation: 
-$$\begin{equation} R= \{ ((m, M_L, x,c,PK); w) : c=\mathsf{Enc}(PK,(m,w),r) \land (x,w) \in M_L \}. \end{equation}$$
+$\begin{equation} R= \{ ((m, M_L, x,c,PK); w) : c=\mathsf{Enc}(PK,(m,w),r) \land (x,w) \in M_L \}. \end{equation}$
 
 The security proofs refer to the corresponding literature.
 

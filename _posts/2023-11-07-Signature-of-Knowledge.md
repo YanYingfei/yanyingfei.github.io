@@ -86,7 +86,7 @@ One can notice in the game sytle definition, the adversary is allowed to access 
 - As the output of simsign and sign are distinguishable, which is garuanteed by *simulatability*, it's safe to replace the signing oracle by sim-signing oracle. This is like we usually do in the secuirty proof of the unforgeability: construct a simulator that answers the signing queries without a signing key and prove the answer of simulator is indistinguish from that of a signing oracle.
 
 ### The Construction
-I mixed the security notions of NIZK and SoK many times when introducing the deifinitions. In this part, I would like to show two constructions of SoK.
+In this part, I would like to show two constructions of SoK.
 
 I use the word "soundness" in the previous section. Actually, it is not accurate, only for understanding the notions, and should be "simulation extractability": 
 

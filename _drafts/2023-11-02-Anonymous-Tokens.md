@@ -15,7 +15,7 @@ Anonymous token (Privacy Pass)  [<a href="#ref7">7</a>] was designed to distingu
 
 The privacy pass protocol [<a href="#ref7">7</a>] can be regarded as blind signature (token signing protocol) + special verification(token redemption protocol). In the token signing protocol, the client and the server interacts as in a blind signature, while in the token redemption protocol, the client sends out a MAC message with respect to the blind signature and the server redeems the token by verifying the MAC. We can notice that the privacy pass didn't go far from the blind signature.
 
-Later on, the privacy pass is extended to that with a single private bit: Anonymous Tokens with Private Metadata Bit, by Kreuter et al [<a href="#ref1">1</a>]. In this syntax, the anonymous tokens can convey two trust signals that the client cannot distinguish which of the two signals is embedded in her tokens. This extension avoids the attack that in a system relying on anonymous trust tokens, malicious users be identified as a threat if the issuer stops providing them with tokens. 
+Later on, the privacy pass is extended to that with a single private bit: Anonymous Tokens with Private Metadata Bit, by Kreuter et al [<a href="#ref1">1</a>]. Following [<a href="#ref7">7</a>], their construction applies VOPRF. In this syntax, the anonymous tokens can convey two trust signals that the client cannot distinguish which of the two signals is embedded in her tokens. This extension avoids the attack that in a system relying on anonymous trust tokens, malicious users be identified as a threat if the issuer stops providing them with tokens. 
 
 Next, in FC22, anonymous tokens was developed to including public metadata and public verification[<a href="#ref2">2</a>]. Thus we have the following 6 categories:
 
@@ -28,7 +28,8 @@ Next, in FC22, anonymous tokens was developed to including public metadata and p
 	1. Anonymous single-use tokens
 	2. Anonymous single-use tokens with public metadata
 
-*What is single-use?*
+*single-use*： A token can only be verified once.
+[<a href="#ref2">2</a> <a href="#ref3">3</a>]
 
 
 

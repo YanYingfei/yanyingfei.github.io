@@ -29,7 +29,7 @@ An R1CS structure-instance tuple $(\mathcal{S}, x)$ is satisfied by an R1CS witn
 $$(A \cdot \vec{z}) \circ (B \cdot \vec{z}) - C \cdot \vec{z} = \vec{0} \tag{2},$$
 where $\vec{z} = (w,1,x) \in \mathbb{F}^n$, $()· \vec{z}$ denotes matrix-vector multiplication, $\circ$ denotes the Hadamard product between vectors, and $\vec{0}$ is an $m$-sized vector with entries equal to the additive identity in $\mathbb{F}$.
 
-Following the above definitions, one can easily do the transformation from $R1CS$ to $CCS$ relations.
+Following the above definitions, one can easily do the transformation from $R1CS$ to $CCS$ relations. $R1CS$ consists of low-degree constraints while $CCS$ supports high-degree gates.
 
 ### Plonkish
 Below I put the definition of Plonkish from [<a href="#ref2">2</a>]. 

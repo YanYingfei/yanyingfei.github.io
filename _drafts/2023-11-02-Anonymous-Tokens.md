@@ -15,9 +15,9 @@ Anonymous token (Privacy Pass)  [<a href="#ref7">7</a>] was designed to distingu
 
 The privacy pass protocol [<a href="#ref7">7</a>] can be regarded as blind signature (token signing protocol) + special verification(token redemption protocol). In the token signing protocol, the client and the server interacts as in a blind signature, while in the token redemption protocol, the client sends out a MAC message with respect to the blind signature and the server redeems the token by verifying the MAC. We can notice that the privacy pass didn't go far from the blind signature.
 
-Later on, the privacy pass is extended to that with a single private bit: Anonymous Tokens with Private Metadata Bit, by Kreuter et al [<a href="#ref1">1</a>]. Following [<a href="#ref7">7</a>], their construction applies VOPRF. In this syntax, the anonymous tokens can convey two trust signals that the client cannot distinguish which of the two signals is embedded in her tokens. This extension avoids the attack that in a system relying on anonymous trust tokens, malicious users be identified as a threat if the issuer stops providing them with tokens. 
+Later on, the privacy pass is extended to that with a single private bit: Anonymous Tokens with Private Metadata Bit, by Kreuter et al in Crypto 2020 [<a href="#ref1">1</a>]. Following [<a href="#ref7">7</a>], their construction applies VOPRF. In this syntax, the anonymous tokens can convey two trust signals that the client cannot distinguish which of the two signals is embedded in her tokens. This extension avoids the attack that in a system relying on anonymous trust tokens, malicious users be identified as a threat if the issuer stops providing them with tokens. 
 
-Next, in FC22, anonymous tokens was developed to including public metadata and public verification[<a href="#ref2">2</a>]. Thus we have the following 6 categories:
+Next, in FC22, anonymous tokens was developed to including public metadata and public verification[<a href="#ref2">2</a>]. Meanwhile, the authors give the corresponding constructions using VOPRF technique. Thus we have the following 6 categories.
 
 1. With designated verification:
 	1. Anonymous single-use tokens
@@ -28,22 +28,29 @@ Next, in FC22, anonymous tokens was developed to including public metadata and p
 	1. Anonymous single-use tokens
 	2. Anonymous single-use tokens with public metadata
 
-*single-use*： A token can only be verified once.
-[<a href="#ref2">2</a> <a href="#ref3">3</a>]
+*single-use*： A token can only be verified once. A second-time usage will break the security.
+
+Later in the literature [<a href="#ref3">3</a>],  the authors apply 'one-more DL' assumption and achieve publicly verifiable anonymous tokens with private metadata bit.
+
+crypto23[<a href="#ref4">4</a>]
+
+Then in Asiacrypt23 [<a href="#ref5">5</a>] , a new primitive called anonymous counting token is proposed to limit the 
 
 
 
 ### Syntax
 
-### Constrcutions
+### Main Constrcutions
 #### Privacy Pass
 
 The privacy pass protocol applies a main building block: verifiable 'oblivious pseudorandom function' (OPRF), which is similar to a blind-RSA interation but more efficient (less than 1-RTT). 
 
 #### Anonymous Token with Private Bit
+crypto22 crypto23
 
 #### Other Constructions
-
+counting tokens
+rsa, pairing
 
 ---
 1. <p name = "ref1"> Ben Kreuter, Tancrède Lepoint, Michele Orrù and Mariana Raykova. Anonymous Tokens with Private Metadata Bit. Cryptology ePrint Archive, Paper 2020/072.</p>

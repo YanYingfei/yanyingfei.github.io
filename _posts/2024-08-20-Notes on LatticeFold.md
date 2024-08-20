@@ -4,7 +4,9 @@ title: A note on Latticefold
 categories: Lattice SNARKs
 author: Yingfei
 ---
-I'm sorry that I haven't updated for a long time. Months ago, I read the new paper "LatticeFold", which proposes a folding technique based on lattice-based assumptions. Here is the handwrite note.
+Folding is a recent technique for building efficient recursive SNARKs. Several elegant folding protocols have been proposed, such as Nova, Supernova, Hypernova, Protostar, and others. LatticeFold is the first lattice-based folding protocol based on the Module SIS problem. This folding protocol naturally leads to an efficient recursive lattice-based SNARK and an efficient PCD scheme. LatticeFold supports folding low-degree relations, such as R1CS, as well as high-degree relations, such as CCS. <!--more-->
+
+Months ago, I read the new paper "LatticeFold"[<a href="#ref1">1</a>]. I really appreciate the elegant design of this protocol. Here is my handwritten note.
 
 <p><img src="/post-src/latticefold/latticefold1.png" alt="-1-"></p>
 <p><img src="/post-src/latticefold/latticefold2.png" alt="-2-"></p>
@@ -22,3 +24,5 @@ I'm sorry that I haven't updated for a long time. Months ago, I read the new pap
 <p><img src="/post-src/latticefold/latticefold14.png" alt="-14-"></p>
 <p><img src="/post-src/latticefold/latticefold15.png" alt="-15-"></p>
 
+---
+1. <p name = "ref1"> Dan Boneh and Binyi Chen. LatticeFold: A Lattice-based Folding Scheme and its Applications to Succinct Proof Systems. Cryptology ePrint Archive, Paper 2024/257.</p>

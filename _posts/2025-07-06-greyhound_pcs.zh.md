@@ -32,7 +32,7 @@ G_3 = \begin{bmatrix}
 0 & \cdots & 0 & 1 & 2 & 2^3 & 2^4
 \end{bmatrix}
 $$
-表示上述过程的逆运算，即 $\mathbf{G}_3 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$.
+ 表示上述过程的逆运算，即 $\mathbf{G}_3 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$.
 
 #### 1.2 Ajtai 承诺
 
@@ -152,10 +152,10 @@ $$
 
 先明确以下符号：$\mathbb{F}_q$ 上的多项式记为 $F(U) = \sum_{i=0}^{N'-1} F_i U^i = V \in \mathbb{F}_q$， $\mathcal{R}_q$ 上的多项式记为 $f(x) = \sum_{i=0}^{N-1} f_i x^i =  y \in \mathcal{R}_q$，我们用$f$表示$F$通过系数填充到$\mathcal{R}_q$上的多项式。 为了区分，我们用 $N-1$ 表示 $f$ 的多项式次数，$N'-1$ 表示  $F$ 的次数。经过系数填充后，$N$ 与 $N'$是不相等的。
 
-- 当 $N' \leq d$ 时， 不失一般性地，我们讨论 $N'=d$，当 $N' < d$时，我们可以通过对 $F$ 填充 $0$ 让 $N'=d$ 成立。此时只需要一个$\mathcal{R}_q$上的元素就可以存储 $F$ 的所有系数，因此 $N = 1$。
+- 当 $N' \leq d$ 时， 不失一般性地，我们讨论 $N'=d$，当 $N' < d$ 时，我们可以通过对 $F$ 填充 $0$ 让 $N'=d$ 成立。此时只需要一个$\mathcal{R}_q$上的元素就可以存储 $F$ 的所有系数，因此 $N = 1$。
 
 我们定义 $F$ 系数填充后的求值式为 $f(x) = f_0 \sigma(x)$ .
-这里的 $f_0 = \sum_{i=0}^{d-1} F_i X^i \in \mathcal{R}_q$ 是$F$ 的所有系数$(F_0, ..., F_{N'-1})$ 通过系数填充得到的，$\sigma(x)$ 是 $F$ 的求值点 $U$ 的所有幂次 $(1, U, ..., U^{N'-1})$，先通过系数填充到$x = \sum_{i=0}^{d-1} U^i X^i\in \mathcal{R}_q$ ，再做 $\sigma$ 映射得到的， $\sigma(x) = 1+ \sum_{i=1}^{d-1} U^i X^{-i} \in \mathcal{R}_q$。 
+这里的 $f_0 = \sum_{i=0}^{d-1} F_i X^i \in \mathcal{R}_q$ 是$F$ 的所有系数$(F_0, ..., F_{N'-1})$ 通过系数填充得到的，$\sigma(x)$ 是 $F$ 的求值点 $U$ 的所有幂次 $(1, U, ..., U^{N'-1})$，先通过系数填充到 $$x = \sum_{i=0}^{d-1} U^i X^i\in \mathcal{R}_q$$ ，再做 $$\sigma$$ 映射得到的， $$\sigma(x) = 1+ \sum_{i=1}^{d-1} U^i X^{-i} \in \mathcal{R}_q$$。 
 需要再次提醒的是，此处的 $X$ 是$\mathcal{R}_q$ 中的符号，没有实际意义。
 
 那么，利用上面讨论的 $\sigma$ 映射，$f(x) = f_1 \sigma(x)$ 的常数项为 $$\sum_{i=0}^{N'-1} F_i U^{i} = V.$$这意味着，一个Greyhound的验证者可以通过检查 $f(x)$ 的常数项是否为 $V$ 来检查$F(U) = V$是否成立。

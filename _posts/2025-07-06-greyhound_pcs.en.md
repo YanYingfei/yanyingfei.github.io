@@ -113,47 +113,33 @@ The commitment key consists of an inner public matrix $\mathbf{A}\in \mathcal{R}
 ### 3. Polynomial Evaluation
 
 In the previous section, we discussed how to commit to a set of vectors
-
 $$
 \mathbf{f}_1, \dots, \mathbf{f}_r \in \mathcal{R}_q^m
 $$
 
 However, our goal is to construct a PCS, so we need to discuss the relationship between this set of vectors and the polynomial
-
 $$
 f(\mathsf{X}) = \sum_{i=0}^{N-1} f_i \mathsf{X}^i \in \mathcal{R}_q
 $$
 
 that we want to do evaluation at some point (for example, a point
-
 $$
 x \in \mathcal{R}_q
 $$
 ).
 
 It is important to note that here $X$ is the variant of the polynomial $f$, and it is not related to the $X$ in
-
 $$
 \mathcal{R} = \mathbb{Z}[X]/(X^d + 1)
 $$
 
 Assume
-
-$$
-N = m \cdot r
-$$
+$$N = m \cdot r$$
 
 We want to prove that the polynomial $f$ evaluated at a point
-
-$$
-x \in \mathcal{R}_q
-$$
-
+$$x \in \mathcal{R}_q$$
 is $y$, i.e.,
-
-$$
-f(x) = \sum_{i=0}^{N-1} f_i x^i = y
-$$
+$$f(x) = \sum_{i=0}^{N-1} f_i x^i = y$$
 
 Similar to Mercury (Breakdown), we can represent the evaluation process using matrix and vector multiplication:
 $$f(x) = [1~x~x^2~\cdots~x^{m-1}] \begin{bmatrix} f_0 & f_m & \cdots & f_{(r-1)m} \\ f_{1} & f_{m+1} &\cdots & f_{(r-1)m+1} \\ f_{2} & f_{m+2} &\cdots & f_{(r-1)m+2} \\ \vdots & \vdots & \ddots & \vdots \\ f_{m-1} & f_{2m-1} &\cdots & f_{N-1} \end{bmatrix} \begin{bmatrix} 1 \\ x^m \\ (x^m)^2\\ \vdots \\ (x^m)^{r-1} \end{bmatrix}.$$
@@ -226,37 +212,31 @@ In the previous sections, we overlooked a key issue: all operations and proofs i
 The transformation from $\mathbb{F}_q$ to $\mathcal{R}_q$ is packing vectors over $\mathbb{F}_q$ into elements of $\mathcal{R}_q$ via coefficient embedding, and then performing operations over $\mathbb{F}_q$ using operations over $\mathcal{R}_q$.
 
 Define an automorphism $\sigma: \mathcal{R}_q \to \mathcal{R}_q$ that maps an element of $\mathcal{R}_q$ to its negative powers,
-
 $$
 \sigma(X) = X^{-1}
 $$
 
 For example, for $a = a_0 + \sum_{i=1}^{d-1} a_i X^i \in \mathcal{R}_q$, we have
-
 $$
 \sigma(a) = a_0 + \sum_{i=1}^{d-1} a_i X^{-i} \in \mathcal{R}_q
 $$
 
 The constant term of $a \cdot \sigma(a)$ is
-
 $$
 a_0 a_0 + \sum_{i=1}^{d-1} a_i a_i = \sum_{i=0}^{d-1} a_i a_i
 $$
 
 More generally, the constant term of $a \cdot \sigma(b)$ is
-
 $$
 \sum a_i b_i
 $$
 
 Let's clarify the following notations: a polynomial over $\mathbb{F}_q$ is denoted by
-
 $$
 F(U) = \sum_{i=0}^{N'-1} F_i U^i = V \in \mathbb{F}_q
 $$
 
 A polynomial over $\mathcal{R}_q$ is denoted by
-
 $$
 f(x) = \sum_{i=0}^{N-1} f_i x^i = y \in \mathcal{R}_q
 $$
@@ -268,33 +248,24 @@ We use $f$ to represent the polynomial $F$ after being packed into $\mathcal{R}_
 Without loss of generality, we can assume $N' = d$ by padding $F$ with zero coefficients. In this case, all coefficients of $F$ can be stored in a single element of $\mathcal{R}_q$, so we have a "polynomial" $f$ of degree $N-1 = 0$.
 
 We define the evaluation of the packed polynomial as
-
 $$
-y = f_0 \cdot \sigma(x)
+y = f_0 \cdot \sigma(x).
 $$
-
 Here,
-
 $$
 f_0 = \sum_{i=0}^{d-1} F_i X^i \in \mathcal{R}_q
 $$
-
 is obtained by packing all coefficients of $F$. The evaluation "point" $x$ is formed by packing the powers of the original evaluation point $U$, i.e.,
-
 $$
 x = \sum_{i=0}^{d-1} U^i X^i \in \mathcal{R}_q
 $$
-
 and
-
 $$
 \sigma(x) = 1+ \sum_{i=1}^{d-1} U^i X^{-i} \in \mathcal{R}_q
 $$
-
 is the automorphism of $x$.
 
 Then, using the property of the $\sigma$ map discussed earlier, the constant term of the product $f_0 \cdot \sigma(x)$ is precisely
-
 $$
 \text{const}(f_0 \cdot \sigma(x)) = \sum_{i=0}^{d-1} F_i U^{i} = V
 $$
@@ -306,13 +277,11 @@ This means a Greyhound verifier can check if $F(U) = V$ holds by checking if the
 Let's assume $N' = k \cdot d$ for some integer $k$. The coefficients of $F$, $(F_0, \ldots, F_{N'-1})$, will be packed into $k$ elements of $\mathcal{R}_q$, $f_0, f_1, \dots, f_{k-1} \in \mathcal{R}_q$. Let's say $N=k$. The evaluation method for the polynomial $f(x)$ is similar to the case when $N' < d$.
 
 We pack the coefficients of $F$ into $(f_0, f_1, \dots, f_{N-1})$ and the powers of $U$ into evaluation points $(x_0, x_1, \dots, x_{N-1})$ as follows:
-
 $$
 f_i = \sum_{j=0}^{d-1} F_{id+j}X^j \quad \text{and} \quad x_i = \sum_{j=0}^{d-1} (U^{id+j}) X^j
 $$
 
 Then we define the evaluation in $\mathcal{R}_q$ as the sum of products:
-
 $$
 y = \sum_{i=0}^{N-1} f_i \cdot \sigma(x_i)
 $$
@@ -320,7 +289,6 @@ $$
 The multiplication $f_i \cdot \sigma(x_i)$ will store the partial sum $\sum_{j=0}^{d-1} F_{id+j}U^{id+j}$ in its constant term, similar to the previous discussion.
 
 Since addition in $\mathcal{R}_q$ is coefficient-wise, the outer summation $\sum_{i=0}^{N-1} f_i \cdot \sigma(x_i)$ will sum up the constant terms. The constant term of the final result $y$ will be:
-
 $$
 \text{const}(y) = \sum_{i=0}^{N-1} \text{const}(f_i \cdot \sigma(x_i)) = \sum_{i=0}^{N-1} \sum_{j=0}^{d-1} F_{id+j}U^{id+j} = \sum_{k=0}^{N'-1} F_k U^k = V
 $$

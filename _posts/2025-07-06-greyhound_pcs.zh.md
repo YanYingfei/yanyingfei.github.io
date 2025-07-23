@@ -24,8 +24,15 @@ $\mathbf{G}_n$ 与 $\mathbf{G}_n^{-1}$是可逆的过程，有 $\mathbf{G}_n \ma
 
 > 例如，$\mathcal{R}_{10} = \mathbb{Z}_{10} [X]/(X^3+1)$，$\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$ ，定义$\delta = \lceil \log 10 \rceil = 4$。
 > 那么 $\mathbf{G}_3^{-1}(\mathbf{t})$ 是先把$(6,5,1),(4,9,2)$ 全部写成二进制数$(0110~0010 ~0101~ 0100~ 1001~ 0010)$，然后填充成 $\mathcal{R}_q$ 上的向量(3个比特一组)，得到 $\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$0+X+0X^2, 0+X+0X^2,$$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$. 
- 对应地，矩阵 $$\mathbf{G}_3 = \begin{bmatrix} [1 & 2  & 2^3 & 2^4] & 0 &&&&&&\cdots&0\\ 0 & & \cdots &0 & [1 & 2  & 2^3 & 2^4] &0 && \cdots & 0\\ 0 & &\cdots & & & &  &0 & [1 & 2  & 2^3 & 2^4] \end{bmatrix}$$
- 表示上述过程的逆运算，即 $\mathbf{G}_3 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$.
+ 对应地，矩阵
+$$
+G_3 = \begin{bmatrix}
+1 & 2 & 2^3 & 2^4 & 0 & \cdots & 0 \\
+0 & \cdots & 0 & 1 & 2 & 2^3 & 2^4 \\
+0 & \cdots & 0 & 1 & 2 & 2^3 & 2^4
+\end{bmatrix}
+$$
+表示上述过程的逆运算，即 $\mathbf{G}_3 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$.
 
 #### 1.2 Ajtai 承诺
 
@@ -39,9 +46,14 @@ SIS问题定义为，给定一个公开矩阵 $\mathbf{A} \in \mathcal{R}_q^{n \
 
 关于Ajtai承诺，有3个点可以进一步讨论：1. 承诺的安全性，2. 承诺消息的范数和 3. 承诺值的压缩性质。
 
-1. 承诺的binding性质基于 SIS 问题，如果一个恶意的攻击者想把承诺值 $\mathbf{t}$ 换成另一个消息的承诺 $\mathbf{t} = \mathbf{Am}'$，等价于找到SIS问题的解 $\mathbf{m-m'}$，满足 $\mathbf{0} = \mathbf{Am-m}', |\mathbf{m-m}'|_\infty \leq 1$.
+1. 承诺的binding性质基于 SIS 问题，如果一个恶意的攻击者想把承诺值 $\mathbf{t}$ 换成另一个消息的承诺 $\mathbf{t} = \mathbf{Am}'$，等价于找到SIS问题的解 $\mathbf{m-m'}$，满足
+$$
+\mathbf{0} = \mathbf{A(m-m')}, \quad |\mathbf{m-m'}|_\infty \leq 1
+$$
 
-2. 注意到，我们求出SIS问题的解能够满足$|\mathbf{m-m}'|_\infty \leq 1$，是因为我们要求了承诺的消息都是二进制的。这里要求消息为二进制数实际上是在约束 $\mathbf{m}$ 的无穷范数（norm）比较小。在其他情况下也可以是 $\mathbf{m}$ 的范数小于某一个bound $B$，那么承诺的binding性质就会归约到bound为 $B$ 的解：$|\mathbf{m-m}'|_\infty \leq 2B$.
+2. 注意到，我们求出SIS问题的解能够满足$$|\mathbf{m-m}'|_\infty \leq 1$$，是因为我们要求了承诺的消息都是二进制的。
+这里要求消息为二进制数实际上是在约束 $\mathbf{m}$ 的无穷范数（norm）比较小。
+在其他情况下也可以是 $\mathbf{m}$ 的范数小于某一个bound $B$，那么承诺的binding性质就会归约到bound为 $B$ 的解：$|\mathbf{m-m}'|_\infty \leq 2B$.
 
 3. 承诺值的压缩性质体现在，承诺值 $\mathbf{t} \in \mathcal{R}_q^n$ 是 $\mathcal{R}_q$上的$n$维向量，与承诺的消息长度（$\mathcal{R}_q$ 上的 $m$ 维向量）无关，且在SIS问题的安全性定义下，承诺值的长度 $n<m$.
 
@@ -54,7 +66,7 @@ Greyhound承诺可以理解为一个两层（内层和外层）Ajtai承诺。
 
 承诺密钥为内层的公开矩阵 $\mathbf{A}\in \mathcal{R}_q^{n\times m\delta}$ 与外层的公开矩阵 $\mathbf{B} \in \mathcal{R}_q^{n \times r n \delta}$.
 
-- 内层承诺：在上一节提到Ajtai承诺的消息应当为二进制字符串。因此，要使用Ajtai承诺对 $\mathbf{f}_1, \dots, \mathbf{f}_r$ 承诺，首先需要利用进制转化的工具矩阵 $\mathbf{G}^{-1}$ 将这组向量转化成二进制的向量$\mathbf{s}_i \in \mathcal{R}_q^{m \delta}$，即 $\mathbf{s}_i = \mathbf{G}_m^{-1}(\mathbf{f}_i)$。现在，可以对消息$\mathbf{s}_i$做Ajtai承诺： $$\mathbf{t}_i := \mathbf{As}_i = \mathbf{AG}^{-1}_m(\mathbf{f}_i)$$
+- 内层承诺：在上一节提到Ajtai承诺的消息应当为二进制字符串。因此，要使用Ajtai承诺对 $\mathbf{f}_1, \dots, \mathbf{f}_r$ 承诺，首先需要利用进制转化的工具矩阵 $\mathbf{G}^{-1}$ 将这组向量转化成二进制的向量$\mathbf{s}_i \in \mathcal{R}_q^{m \delta}$，即 $\mathbf{s}_i = \mathbf{G}_m^{-1}(\mathbf{f}_i)$。现在，可以对消息$\mathbf{s}_i$ 做Ajtai承诺： $$\mathbf{t}_i := \mathbf{As}_i = \mathbf{AG}^{-1}_m(\mathbf{f}_i)$$
 这样，可以得到 $r$ 个消息$\mathbf{f}_1, ...,\mathbf{f}_r$ 的承诺值 $\mathbf{t}_1, ..., \mathbf{t}_r \in \mathcal{R}_q^n$.
 
 - 外层承诺：内层承诺完成后，我们得到了 $r$ 个向量$\mathbf{t}_1, ..., \mathbf{t}_r \in \mathcal{R}_q^n$ ，目前的承诺值与消息的长度（$r$ 组 长度为$m$ 的向量），即$\mathcal{O}(mr)$ 是亚线性的关系。为了获得更压缩的承诺值，即$\mathcal{O}(1)$，我们希望对内层承诺值 $\mathbf{t}_1, ..., \mathbf{t}_r$ 再做一次Ajtai承诺。可以通过把 $\mathbf{t}_1, ..., \mathbf{t}_r$ 看成承诺消息，重复上面的过程来完成。首先使用 $\mathbf{G}^{-1}$ 将 $\mathbf{t}_1, ..., \mathbf{t}_r$ 转化成二进制系数的向量 $\hat{\mathbf{t}}_i = \mathbf{G}^{-1}(\mathbf{t}_i)$ ，然后计算外层承诺值： $$\mathbf{u} := \mathbf{B}\begin{bmatrix} \hat{\mathbf{t}}_1 \\ \vdots \\ \hat{\mathbf{t}}_r \end{bmatrix} \in \mathcal{R}_q^n$$

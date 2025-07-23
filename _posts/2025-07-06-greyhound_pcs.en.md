@@ -22,8 +22,31 @@ For an integer $n \geq 1$, we define a gadget matrix for composing integer value
 For a vector $\mathbf{t} \in \mathcal{R}_q^n$, the symbol $\mathbf{G}_n^{-1}(\mathbf{t})$ represents the process of decomposing all coefficients of $\mathbf{t}$ into their binary representations and then packing them into a new vector.
 The operations $\mathbf{G}_n$ and $\mathbf{G}_n^{-1}$ are inverses of each other, satisfying $\mathbf{G}_n \mathbf{G}_n^{-1}(\mathbf{t}) = \mathbf{t}$.
 
-> For example, let $\mathcal{R}_{10} = \mathbb{Z}_{10} [X]/(X^3+1)$, and $\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$. Define $\delta = \lceil \log 10 \rceil = 4$.
-> Then, $\mathbf{G}_3^{-1}(\mathbf{t})$ is obtained by first writing all coefficients $(6,2,5)$ and $(4,9,2)$ in binary form $(0110~0010 ~0101~ 0100~ 1001~ 0010)$, and then packing them into a vector over $\mathcal{R}_q$ (3 bits as a group), resulting in $\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$0+X+0X^2, 0+X+0X^2,$$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$.
+> For example,
+
+$$
+\mathcal{R}^{10} = \mathbb{Z}^{10}
+$$
+
+$$
+(X^3+1)
+$$
+
+$$
+\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}^{10}^2
+$$
+
+define
+
+$$
+|\delta = \lceil \log 10 \rceil = 4
+$$
+
+Then,
+
+$$
+\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2, 0+X+0X^2, 0+X+0X^2, 0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}
+$$
 > Correspondingly, the matrix $$\mathbf{G}_3 = \begin{bmatrix} [1 & 2  & 2^3 & 2^4] & 0 &&&&&&\cdots&0\\ 0 & & \cdots &0 & [1 & 2  & 2^3 & 2^4] &0 && \cdots & 0\\ 0 & &\cdots & & & &  &0 & [1 & 2  & 2^3 & 2^4] \end{bmatrix}$$ represents the inverse operation, such that $\mathbf{G}_2 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$.
 
 #### 1.2 Ajtai Commitment
@@ -40,7 +63,17 @@ There are three key points to discuss regarding the Ajtai commitment: 1. The sec
 
 1.  The **binding** property of the commitment is based on the SIS problem. If a malicious attacker wants to open a commitment $\mathbf{t}$ to a different message $\mathbf{m}'$ such that $\mathbf{t} = \mathbf{Am}'$, this is equivalent to finding a solution $\mathbf{m-m'}$ to the SIS problem, satisfying $\mathbf{A(m-m')}=\mathbf{0}$ with $\|\mathbf{m-m'}\|_\infty \leq 1$.
 
-2.  Note that we can find a solution to the SIS problem satisfying $\|\mathbf{m-m'}\|_\infty \leq 1$ because we require the committed messages to be binary. This requirement constrains the (infinity) norm of $\mathbf{m}$ to be small. In other scenarios, if $\mathbf{m}$'s norm is bounded by some value $B$, the binding property would be reduced to finding a solution with a bound of $2B$: $\|\mathbf{m-m'}\|_\infty \leq 2B$.
+2.  Note that we can find a solution to the SIS problem satisfying
+
+$$
+|\mathbf{m-m'}|_\infty \leq 1
+$$
+
+because we require the committed messages to be binary. This requirement constrains the (infinity) norm of $\mathbf{m}$ to be small. In other scenarios, if $\mathbf{m}$'s norm is bounded by some value $B$, the binding property would be reduced to finding a solution with a bound of $2B$:
+
+$$
+|\mathbf{m-m'}|_\infty \leq 2B
+$$
 
 3.  The **compression** property of the commitment is evident in that the commitment value $\mathbf{t} \in \mathcal{R}_q^n$ is an $n$-dimensional vector over $\mathcal{R}_q$, independent of the message length (an $m$-dimensional vector over $\mathcal{R}_q$). Under the security assumptions of the SIS problem, the length of the commitment $n$ is less than $m$.
 

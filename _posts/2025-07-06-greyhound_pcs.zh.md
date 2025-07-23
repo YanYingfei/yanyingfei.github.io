@@ -6,12 +6,9 @@ author: Yingfei
 meta: "Springfield"
 ---
 
-# Greyhound 多项式承诺
-
+本文的主要目的是帮助读者理解Greyhound多项式承诺的方法，evaluation证明的做法，以及如何用Greyhound证明一个 $\mathbb{F}_q$ 上的多项式的求值。
 
 Greyhound 是一个基于lattice的多项式承诺方案（PCS）。对于degree为$N$ 的多项式，evaluation 证明的尺寸是$poly\log(N)$，证明的验证时间是$O(\sqrt{N})$。
-
-本文的主要目的是帮助读者理解Greyhound多项式承诺的方法，evaluation证明的做法，以及如何用Greyhound证明一个 $\mathbb{F}_q$ 上的多项式的求值。
 
 ### 1. 符号和相关背景
 

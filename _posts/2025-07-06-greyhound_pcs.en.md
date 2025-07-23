@@ -6,11 +6,9 @@ author: Yingfei
 meta: "Springfield"
 ---
 
-# Greyhound Polynomial Commitment Scheme
+The main purpose of this article is to help readers understand the methodology of the Greyhound polynomial commitment, the construction of its evaluation proof, and how to use Greyhound to prove the evaluation of a polynomial over $\mathbb{F}_q$.
 
 Greyhound is a lattice-based polynomial commitment scheme (PCS). For a polynomial of degree $N$, the size of an evaluation proof is $poly\log(N)$, and the verification time for the proof is $O(\sqrt{N})$.
-
-The main purpose of this article is to help readers understand the methodology of the Greyhound polynomial commitment, the construction of its evaluation proof, and how to use Greyhound to prove the evaluation of a polynomial over $\mathbb{F}_q$.
 
 ### 1. Notations and Background
 

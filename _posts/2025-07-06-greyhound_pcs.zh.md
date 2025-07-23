@@ -25,14 +25,12 @@ $\mathbf{G}_n$ 与 $\mathbf{G}_n^{-1}$是可逆的过程，有 $\mathbf{G}_n \ma
 > 例如，$\mathcal{R}_{10} = \mathbb{Z}_{10} [X]/(X^3+1)$，$\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$ ，定义$\delta = \lceil \log 10 \rceil = 4$。
 > 那么 $\mathbf{G}_3^{-1}(\mathbf{t})$ 是先把$(6,5,1),(4,9,2)$ 全部写成二进制数$(0110~0010 ~0101~ 0100~ 1001~ 0010)$，然后填充成 $\mathcal{R}_q$ 上的向量(3个比特一组)，得到 $\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$0+X+0X^2, 0+X+0X^2,$$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$. 
  对应地，矩阵
-$$
-G_3 = \begin{bmatrix}
+$$G_3 = \begin{bmatrix}
 1 & 2 & 2^3 & 2^4 & 0 & \cdots & 0 \\
 0 & \cdots & 0 & 1 & 2 & 2^3 & 2^4 \\
 0 & \cdots & 0 & 1 & 2 & 2^3 & 2^4
-\end{bmatrix}
-$$
- 表示上述过程的逆运算，即 $\mathbf{G}_3 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$.
+\end{bmatrix}$$
+表示上述过程的逆运算，即 $\mathbf{G}_3 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$。
 
 #### 1.2 Ajtai 承诺
 
@@ -79,7 +77,8 @@ Greyhound承诺可以理解为一个两层（内层和外层）Ajtai承诺。
 
 需要注意的是， $\mathsf{X}$ 是多项式 $f$ 的变量，与$\mathcal{R} = \mathbb{Z}[X]/(X^d + 1)$ 中的 $X$ 没有关系。
 
-假设 $N=m \cdot r$，我们希望证明多项式 $f$ 在点 $x \in \mathcal{R}_q$ 的求值为$y$, 即 $f(x) = \sum_{i=0}^{N-1} f_i x^i =  y$.
+假设 $N = m \cdot r$，我们希望证明多项式 $f$ 在点 $x \in \mathcal{R}_q$ 的求值为 $y$，即
+$$f(x) = \sum_{i=0}^{N-1} f_i x^i = y$$
 
 类似mercury（Breakdown），我们可以把上述求值过程用矩阵和向量的乘法表示：
 $$f(x) = [1~x~x^2~\cdots~x^{m-1}] \begin{bmatrix} f_0 & f_m & \cdots & f_{(r-1)m} \\ f_{1} & f_{m+1} &\cdots & f_{(r-1)m+1} \\ f_{2} & f_{m+2} &\cdots & f_{(r-1)m+2} \\ &&\cdots& \\ f_{m-1} & f_{2m-1} &\cdots & f_{rm-1} \end{bmatrix} \begin{bmatrix} 1 \\ x^m \\ (x^m)^2\\ \vdots \\ (x^m)^r \end{bmatrix}.$$
@@ -147,10 +146,27 @@ $$
 
 从 $\mathbb{F}_q$ 到 $\mathcal{R}_q$ 的转化需要把 $\mathbb{F}_q$ 上的向量通过系数填充填充到 $\mathcal{R}_q$ 上，然后利用 $\mathcal{R}_q$ 上的运算表示 $\mathbb{F}_q$ 上的运算。
 
-定义一种自同构映射 $\sigma: \mathcal{R}_q \to \mathcal{R}_q$，该映射把 $\mathcal{R}_q$ 上的元素映射到负幂次，$\sigma{X} = X^{-1}$.  例如，$a = a_0 + \sum_{i=1}^{d-1} a_i X^i \in \mathcal{R}_q$，那么 $\sigma(a) = a_0 +\sum_{i=1}^{d-1} a_i X^{-i} \in \mathcal{R}_q$. 
-在 $\mathcal{R}_q$ 上，$a \cdot \sigma(a)$的常数项为：$a_0 a_0 + \sum_{i=1}^{d-1} a_i a_i = \sum_{i=0}^{d-1} a_i a_ic$，即 $a$ 中的项 与 $\sigma(a)$ 中的项乘积不包含$X$的所有项求和。
+定义一种自同构映射 $\sigma: \mathcal{R}_q \to \mathcal{R}_q$，该映射把 $\mathcal{R}_q$ 上的元素映射到负幂次，$\sigma(X) = X^{-1}$。例如，
+a = a_0 + \sum_{i=1}^{d-1} a_i X^i \in \mathcal{R}_q$，那么
+$$
+\sigma(a) = a_0 + \sum_{i=1}^{d-1} a_i X^{-i} \in \mathcal{R}_q
+$$
+在 $\mathcal{R}_q$ 上，$a \cdot \sigma(a)$ 的常数项为：
+$$
+a_0 a_0 + \sum_{i=1}^{d-1} a_i a_i = \sum_{i=0}^{d-1} a_i a_i
+$$
+即 a 中的项与 $\sigma(a)$ 中的项乘积不包含 X 的所有项求和。
 
-先明确以下符号：$\mathbb{F}_q$ 上的多项式记为 $F(U) = \sum_{i=0}^{N'-1} F_i U^i = V \in \mathbb{F}_q$， $\mathcal{R}_q$ 上的多项式记为 $f(x) = \sum_{i=0}^{N-1} f_i x^i =  y \in \mathcal{R}_q$，我们用$f$表示$F$通过系数填充到$\mathcal{R}_q$上的多项式。 为了区分，我们用 $N-1$ 表示 $f$ 的多项式次数，$N'-1$ 表示  $F$ 的次数。经过系数填充后，$N$ 与 $N'$是不相等的。
+先明确以下符号：
+$\mathbb{F}_q$ 上的多项式记为
+$$
+F(U) = \sum_{i=0}^{N'-1} F_i U^i = V \in \mathbb{F}_q
+$$
+$\mathcal{R}_q$ 上的多项式记为
+$$
+f(x) = \sum_{i=0}^{N-1} f_i x^i = y \in \mathcal{R}_q
+$$
+我们用 $f$ 表示 F 通过系数填充到 $\mathcal{R}_q$ 上的多项式。为了区分，我们用 N-1 表示 f 的多项式次数，N'-1 表示 F 的次数。经过系数填充后，N 与 N' 是不相等的。
 
 - 当 $N' \leq d$ 时， 不失一般性地，我们讨论 $N'=d$，当 $N' < d$ 时，我们可以通过对 $F$ 填充 $0$ 让 $N'=d$ 成立。此时只需要一个$\mathcal{R}_q$上的元素就可以存储 $F$ 的所有系数，因此 $N = 1$。
 

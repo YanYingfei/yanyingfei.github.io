@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Greyhound PCS - en"
+title: "Greyhound PCS - EN"
 categories: snark
 author: Yingfei
 meta: "Springfield"
@@ -122,11 +122,14 @@ $$f(x) = \mathbf{a}(x)^\top [\mathbf{f}_1 ~ \cdots ~\mathbf{f}_r] \mathbf{b}(x^m
 The proof of a polynomial evaluation consists of two parts: 1. The commitment is well-formed; 2. The polynomial evaluation was computed correctly.
 
 1.  First, a prover needs to commit to the polynomial $f$ as described in Section 2. Proving the correctness of the commitment calculation means proving:
+
     $$\begin{align*} \mathbf{s}_i &= \mathbf{G}^{-1}_m(\mathbf{f}_i), \\ \mathbf{t}_i &= \mathbf{As}_i, \\ \mathbf{u} &= \mathbf{B}\begin{bmatrix} \hat{\mathbf{t}}_1 \\ \vdots \\ \hat{\mathbf{t}}_r \end{bmatrix}, \text{where } \hat{\mathbf{t}}_i = \mathbf{G}_n^{-1}(\mathbf{t}_i). \end{align*} $$
+
     Since the transform $\mathbf{G}$ is 'invertible', the first equation can also be written as $\mathbf{f}_i = \mathbf{G}_m \mathbf{s}_i$. 
     Then the second equation implies $\mathbf{G}_n(\hat{\mathbf{t}}_i) = \mathbf{As}_i$.
 
 2.  Proving the correctness of the polynomial evaluation means proving:
+
     $$y = \mathbf{a}(x)^\top [\mathbf{f}_1 ~ \cdots ~\mathbf{f}_r] \mathbf{b}(x^m).$$
 
 Greyhound's approach is, let the prover compute the parts directly related to the polynomial coefficients $\mathbf{f}_i$, and let the verifier compute the rest. 
@@ -247,8 +250,8 @@ This means a Greyhound verifier can check if $F(U) = V$ holds by checking if the
 #### Case 2: $N' > d$
 
 Let's assume $N' = k \cdot d$ for some integer $k$. 
-The coefficients of $F$, $(F_0, \ldots, F_{N'-1})$, will be packed into $k$ elements of $\mathcal{R}_q$, $f_0, f_1, \dots, f_{k-1} \in \mathcal{R}_q$. 
-Let's say $$N=k$$. 
+The coefficients of $F$, $(F_0, \ldots, F_{N'-1})$, will be packed into $k$ elements of $$\mathcal{R}_q$$, $$f_0, f_1, \dots, f_{k-1} \in \mathcal{R}_q$$. 
+Let's say $$N = k$$. 
 The evaluation method for the polynomial $f(x)$ is similar to the case when $$N' < d$$.
 
 We pack the coefficients of $F$ into $(f_0, f_1, \dots, f_{N-1})$ and the powers of $U$ into evaluation points $(x_0, x_1, \dots, x_{N-1})$ as follows:

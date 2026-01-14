@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Greyhound PCS - ch"
+title: "Greyhound PCS - ZH"
 categories: snark
 author: Yingfei
 meta: "Springfield"
@@ -22,21 +22,28 @@ Greyhound 是一个基于lattice的多项式承诺方案（PCS）。对于degree
 对于一个向量 $\mathbf{t} \in \mathcal{R}_q^n$，符号$\mathbf{G}_n^{-1}(\mathbf{t})$表示，将 $\mathbf{t}$ 的系数全部分解成二进制数，再通过系数填充成的向量。
 $\mathbf{G}_n$ 与 $\mathbf{G}_n^{-1}$是可逆的过程，有 $\mathbf{G}_n \mathbf{G}_n^{-1}(\mathbf{t}) = \mathbf{t}$.
 
-> 例如，$\mathcal{R}_{10} = \mathbb{Z}_{10} [X]/(X^3+1)$，$\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$ ，定义$\delta = \lceil \log 10 \rceil = 4$。
-> 那么 $\mathbf{G}_3^{-1}(\mathbf{t})$ 是先把$(6,5,1),(4,9,2)$ 全部写成二进制数$(0110~0010 ~0101~ 0100~ 1001~ 0010)$，然后填充成 $\mathcal{R}_q$ 上的向量(3个比特一组)，得到 $\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$0+X+0X^2, 0+X+0X^2,$$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$. 
- 对应地，矩阵
-$$G_3 = \begin{bmatrix}
+> 例如，$$\mathcal{R}_{10} = \mathbb{Z}_{10} [X]/(X^3+1)$$，
+> $$\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$$，
+> 定义$\delta = \lceil \log 10 \rceil = 4$。
+> 那么 $$\mathbf{G}_3^{-1}(\mathbf{t})$$ 是先把$$(6,5,1),(4,9,2)$$ 全部写成二进制数$$(0110~0010 ~0101~ 0100~ 1001~ 0010)$$，然后填充成 $\mathcal{R}_q$ 上的向量(3个比特一组)，得到 $$\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$
+$$0+X+0X^2, 0+X+0X^2,$$
+$$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$$. 
+> 
+> 对应地，矩阵
+
+> $$G_3 = \begin{bmatrix}
 1 & 2 & 2^3 & 2^4 & 0 & \cdots & 0 \\
 0 & \cdots & 0 & 1 & 2 & 2^3 & 2^4 \\
 0 & \cdots & 0 & 1 & 2 & 2^3 & 2^4
 \end{bmatrix}$$
-表示上述过程的逆运算，即 $\mathbf{G}_3 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$。
+> 
+> 表示上述过程的逆运算，即 $\mathbf{G}_3 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$。
 
 #### 1.2 Ajtai 承诺
 
 此外，介绍SIS问题与Ajtai承诺的定义。
 
-SIS问题定义为，给定一个公开矩阵 $\mathbf{A} \in \mathcal{R}_q^{n \times m}$，求解一个非零短向量 $\mathbf{z} \in \mathcal{R}_q^m$ 满足 $\mathbf{A}\mathbf{z}=\mathbf{0}, |\mathbf{z}|\leq B$.
+SIS问题定义为，给定一个公开矩阵 $\mathbf{A} \in \mathcal{R}_q^{n \times m}$，求解一个非零短向量 $\mathbf{z} \in \mathcal{R}_q^m$ 满足 $$\mathbf{A}\mathbf{z}=\mathbf{0}, |\mathbf{z}|\leq B$$.
 
 对于一个二进制消息，通过系数填充将其填充成 $\mathcal{R}$ 上的向量 $\mathbf{m} \in \mathcal{R}^m$，Ajtai承诺过程如下：
 - KeyGen  输入安全参数$\lambda$ ，生成承诺密钥 $\mathbf{A} \in \mathcal{R}_q^{n\times m}$
@@ -73,7 +80,7 @@ Greyhound承诺可以理解为一个两层（内层和外层）Ajtai承诺。
 
 ### 3. Greyhound承诺的多项式求值
 
-在上一节我们讨论了如何承诺一组向量 $\mathbf{f}_1, \dots, \mathbf{f}_r \in \mathcal{R}_q^m$，但我们的目标是构造一个PCS，所以需要讨论这组向量与一个要做evaluation的多项式 $f(\mathsf{X}) = \sum_{i=0}^{N-1} f_i \mathsf{X}^i \in \mathcal{R}_q^{<N}[\mathsf{X}]$ 之间的关系。
+在上一节我们讨论了如何承诺一组向量 $$\mathbf{f}_1, \dots, \mathbf{f}_r \in \mathcal{R}_q^m$$，但我们的目标是构造一个PCS，所以需要讨论这组向量与一个要做evaluation的多项式 $$f(\mathsf{X}) = \sum_{i=0}^{N-1} f_i \mathsf{X}^i \in \mathcal{R}_q^{<N}[\mathsf{X}]$$ 之间的关系。
 
 需要注意的是， $\mathsf{X}$ 是多项式 $f$ 的变量，与$\mathcal{R} = \mathbb{Z}[X]/(X^d + 1)$ 中的 $X$ 没有关系。
 
@@ -81,18 +88,21 @@ Greyhound承诺可以理解为一个两层（内层和外层）Ajtai承诺。
 $$f(x) = \sum_{i=0}^{N-1} f_i x^i = y$$
 
 类似mercury（Breakdown），我们可以把上述求值过程用矩阵和向量的乘法表示：
+
 $$f(x) = [1~x~x^2~\cdots~x^{m-1}] \begin{bmatrix} f_0 & f_m & \cdots & f_{(r-1)m} \\ f_{1} & f_{m+1} &\cdots & f_{(r-1)m+1} \\ f_{2} & f_{m+2} &\cdots & f_{(r-1)m+2} \\ &&\cdots& \\ f_{m-1} & f_{2m-1} &\cdots & f_{rm-1} \end{bmatrix} \begin{bmatrix} 1 \\ x^m \\ (x^m)^2\\ \vdots \\ (x^m)^r \end{bmatrix}.$$
 
 
-因此，如果定义向量 $\mathbf{f}_i = [ f_{(i-1)m}, f_{(i-1)m+1}, ... , f_{im-1}] \in \mathcal{R}_q^m$，为多项式 $f$ 的系数组成的一组向量，那么，对$\mathbf{f}_1, \dots, \mathbf{f}_r \in \mathcal{R}_q^m$的承诺就是对多项式 $f$ 的承诺。
+因此，如果定义向量 $$\mathbf{f}_i = [ f_{(i-1)m}, f_{(i-1)m+1}, ... , f_{im-1}] \in \mathcal{R}_q^m$$，为多项式 $f$ 的系数组成的一组向量，那么，对 $$\mathbf{f}_1, \dots, \mathbf{f}_r \in \mathcal{R}_q^m$$ 的承诺就是对多项式 $f$ 的承诺。
 
 现在，我们定义向量 $\mathbf{a}^\top = [1~x~x^2~\cdots~x^{m-1}]$ 与 $\mathbf{b}^\top = \begin{bmatrix} 1 ~ x^m ~\dots ~ (x^m)^r \end{bmatrix}$ ，那么多项式 $f$ 的求值可以表示为 $$f(x) = \mathbf{a}^\top [\mathbf{f}_1 ~ \cdots ~\mathbf{f}_r] \mathbf{b}.$$
 这是关于 $\mathbf{a}(x)$ 与 $\mathbf{b}(x^m)$的一个二次关系。  
+
 ### 4. 多项式求值的证明
 
 多项式求值的证明包括2点：1. 多项式的承诺是正确计算的；2. 多项式求值的运算是正确的。
 
 1. 首先一个证明者需要对多项式 $f$ 按照1.1节的方式做承诺，那么证明承诺计算的正确性，即证明：
+
 $$\begin{align*} \mathbf{s}_i &= \mathbf{G}^{-1}_m(\mathbf{f}_i), \\ \mathbf{t}_i &= \mathbf{G}_n\hat{\mathbf{t}}_i = \mathbf{As}_i,  \\ \mathbf{u} &= \mathbf{B}\begin{bmatrix} \hat{\mathbf{t}}_1 \\ \vdots \\ \hat{\mathbf{t}}_r \end{bmatrix}. \end{align*} $$
 
 由于$\mathbf{G}$的转化是可逆的，第一个等式也可以写成 $\mathbf{f}_i = \mathbf{G}_m \mathbf{s}_i$.
@@ -146,8 +156,10 @@ $$
 
 从 $\mathbb{F}_q$ 到 $\mathcal{R}_q$ 的转化需要把 $\mathbb{F}_q$ 上的向量通过系数填充填充到 $\mathcal{R}_q$ 上，然后利用 $\mathcal{R}_q$ 上的运算表示 $\mathbb{F}_q$ 上的运算。
 
-定义一种自同构映射 $\sigma: \mathcal{R}_q \to \mathcal{R}_q$，该映射把 $\mathcal{R}_q$ 上的元素映射到负幂次，$\sigma(X) = X^{-1}$。例如，
-a = a_0 + \sum_{i=1}^{d-1} a_i X^i \in \mathcal{R}_q$，那么
+定义一种自同构映射 $$\sigma: \mathcal{R}_q \to \mathcal{R}_q$$，该映射把 $\mathcal{R}_q$ 上的元素映射到负幂次，$\sigma(X) = X^{-1}$。
+例如，
+$$a = a_0 + \sum_{i=1}^{d-1} a_i X^i \in \mathcal{R}_q$$，
+那么
 $$
 \sigma(a) = a_0 + \sum_{i=1}^{d-1} a_i X^{-i} \in \mathcal{R}_q
 $$
@@ -166,23 +178,31 @@ $\mathcal{R}_q$ 上的多项式记为
 $$
 f(x) = \sum_{i=0}^{N-1} f_i x^i = y \in \mathcal{R}_q
 $$
-我们用 $f$ 表示 F 通过系数填充到 $\mathcal{R}_q$ 上的多项式。为了区分，我们用 N-1 表示 f 的多项式次数，N'-1 表示 F 的次数。经过系数填充后，N 与 N' 是不相等的。
+我们用 $f$ 表示 F 通过系数填充到 $\mathcal{R}_q$ 上的多项式。为了区分，我们用 N-1 表示 f 的多项式次数，$$N'-1$$ 表示 F 的次数。经过系数填充后，N 与 N' 是不相等的。
 
 - 当 $N' \leq d$ 时， 不失一般性地，我们讨论 $N'=d$，当 $N' < d$ 时，我们可以通过对 $F$ 填充 $0$ 让 $N'=d$ 成立。此时只需要一个$\mathcal{R}_q$上的元素就可以存储 $F$ 的所有系数，因此 $N = 1$。
 
-我们定义 $F$ 系数填充后的求值式为 $f(x) = f_0 \sigma(x)$ .
-这里的 $f_0 = \sum_{i=0}^{d-1} F_i X^i \in \mathcal{R}_q$ 是$F$ 的所有系数$(F_0, ..., F_{N'-1})$ 通过系数填充得到的，$\sigma(x)$ 是 $F$ 的求值点 $U$ 的所有幂次 $(1, U, ..., U^{N'-1})$，先通过系数填充到 $$x = \sum_{i=0}^{d-1} U^i X^i\in \mathcal{R}_q$$ ，再做 $$\sigma$$ 映射得到的， $$\sigma(x) = 1+ \sum_{i=1}^{d-1} U^i X^{-i} \in \mathcal{R}_q$$。 
+我们定义 $F$ 系数填充后的求值式为 $$f(x) = f_0 \sigma(x)$$ .
+这里的 $$f_0 = \sum_{i=0}^{d-1} F_i X^i \in \mathcal{R}_q$$ 是$F$ 的所有系数 $$(F_0, ..., F_{N'-1})$$ 通过系数填充得到的，$\sigma(x)$ 是 $F$ 的求值点 $U$ 的所有幂次 $(1, U, ..., U^{N'-1})$，先通过系数填充到 $$x = \sum_{i=0}^{d-1} U^i X^i\in \mathcal{R}_q$$ ，再做 $$\sigma$$ 映射得到的， $$\sigma(x) = 1+ \sum_{i=1}^{d-1} U^i X^{-i} \in \mathcal{R}_q$$。 
 需要再次提醒的是，此处的 $X$ 是$\mathcal{R}_q$ 中的符号，没有实际意义。
 
 那么，利用上面讨论的 $\sigma$ 映射，$f(x) = f_1 \sigma(x)$ 的常数项为 $$\sum_{i=0}^{N'-1} F_i U^{i} = V.$$这意味着，一个Greyhound的验证者可以通过检查 $f(x)$ 的常数项是否为 $V$ 来检查$F(U) = V$是否成立。
 
-- 当 $N' > d$ 时，我们讨论 $N' = Nd$. 此时，$F$ 的系数 $(F_0, ..., F_{N'-1})$ 会填充到 $N$ 个 $\mathcal{R}_q$ 上的元素 $f_0, f_1 ..., f_{N-1} \in \mathcal{R}_q$，但是多项式$f(x)$的运算方法与 $N'=d$ 时是类似的。
+- 当 $N' > d$ 时，我们讨论 $N' = Nd$。 此时，$F$ 的系数 $$(F_0, ..., F_{N'-1})$$ 会填充到 $N$ 个 $\mathcal{R}_q$ 上的元素 $$f_0, f_1 ..., f_{N-1} \in \mathcal{R}_q$$，但是多项式 $f(x)$ 的运算方法与 $$N'=d$$ 时是类似的。
 
-我们只需要把 $F$ 的系数依次填充到 $(f_0, f_1 ..., f_{N-1})$， 再把 $(1, U, ..., U^{N'-1})$ 依次填充到 $x_1, x_2, ..., x_N \in \mathcal{R}_q$， 然后定义$$f(x) = \sum_{i=0}^{N} f_i \cdot \sigma(x_i).$$
+我们只需要把 $F$ 的系数依次填充到 $$(f_0, f_1 ..., f_{N-1})$$ ， 再把 $(1, U, ..., U^{N'-1})$ 依次填充到 $$x_1, x_2, ..., x_N \in \mathcal{R}_q$$， 然后定义 
+
+$$f(x) = \sum_{i=0}^{N} f_i \cdot \sigma(x_i).$$
+
 $$f_i = \sum_{j=0}^{d-1} F_{id+j}X^j \quad \text{and} \quad x_i = \sum_{j=0}^{d-1} (U^{id+j}) X^j.$$
+
 那么，$f(x)$ 中 $f_i$ 与 $x_i$ 的乘法运算会分段地将$\sum_{j=0}^{d} F_{id+j}{U^{id+j}}$ 保存在 $f_i x_i$ 的常数项中，这与先前的讨论类似。
 
-由于 $\mathcal{R}_q$ 上的加法运算是对应系数相加，那么外层从 $i=0$ 到 $N$ 的加法运算 $\sum_{i=0}^{N-1} f_i x_i$ ，会把各个常数项中的 $\sum_{j=0}^{d} F_{id+j}{U^{id+j}}$进一步合并起来，即 $f(x)$的常数项为 $$\text{const}(y) = \sum_{i=0}^{N-1} \text{const}(f_i \cdot \sigma(x_i)) = \sum_{i=0}^{N-1} \sum_{j=0}^{d} F_{id+j}{U^{id+j}} = \sum_{i=0} ^{N'-1} F_i U^i = V.$$
+由于 $$\mathcal{R}_q$$ 上的加法运算是对应系数相加，那么外层从 $i=0$ 到 $N$ 的加法运算 $$\sum_{i=0}^{N-1} f_i x_i$$ ，会把各个常数项中的 $$\sum_{j=0}^{d} F_{id+j}{U^{id+j}}$$ 进一步合并起来，
+即 $f(x)$ 的常数项为 
+
+$$\text{const}(y) = \sum_{i=0}^{N-1} \text{const}(f_i \cdot \sigma(x_i)) = \sum_{i=0}^{N-1} \sum_{j=0}^{d} F_{id+j}{U^{id+j}} = \sum_{i=0} ^{N'-1} F_i U^i = V.$$
+
 现在，我们已经可以使用greyhound对任意的 $\mathbb{F}_q$ 上的多项式做承诺，以及证明它们的evaluations了。
 
 ### 6. 总结

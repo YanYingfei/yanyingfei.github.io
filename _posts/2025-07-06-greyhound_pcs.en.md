@@ -22,12 +22,13 @@ For an integer $n \geq 1$, we define a gadget matrix for composing integer value
 For a vector $\mathbf{t} \in \mathcal{R}_q^n$, the symbol $\mathbf{G}_n^{-1}(\mathbf{t})$ represents the process of decomposing all coefficients of $\mathbf{t}$ into their binary representations and then packing them into a new vector.
 The operations $\mathbf{G}_n$ and $\mathbf{G}_n^{-1}$ are inverses of each other, satisfying $\mathbf{G}_n \mathbf{G}_n^{-1}(\mathbf{t}) = \mathbf{t}$.
 
-> For example, let $$\mathcal{R}_{10} = \mathbb{Z}_{10} [X]/(X^3+1)$$, and $$\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$$. Define $$\delta = \lceil \log 10 \rceil = 4$$.
-> Then, $\mathbf{G}_3^{-1}(\mathbf{t})$ is obtained by first writing all coefficients $(6,2,5)$ and $(4,9,2)$ in binary form $(0110~0010 ~0101~ 0100~ 1001~ 0010)$, and then packing them into a vector over $\mathcal{R}_q$ (3 bits as a group), resulting in 
+> For example, let $$\mathcal{R}_{10} = \mathbb{Z}_{10} [X]/(X^3+1)$$, and $$\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$$. 
+> Define $$\delta = \lceil \log 10 \rceil = 4$$.
+> Then, $$\mathbf{G}_3^{-1}(\mathbf{t})$$ is obtained by first writing all coefficients $(6,2,5)$ and $(4,9,2)$ in binary form $(0110~0010 ~0101~ 0100~ 1001~ 0010)$, and then packing them into a vector over $$\mathcal{R}_q$$ (3 bits as a group), resulting in 
 > $$\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$0+X+0X^2, 0+X+0X^2,$$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$$.
 > Correspondingly, the matrix 
 > $$\mathbf{G}_3 = \begin{bmatrix} [1 & 2  & 2^3 & 2^4] & 0 &&&&&&\cdots&0\\ 0 & & \cdots &0 & [1 & 2  & 2^3 & 2^4] &0 && \cdots & 0\\ 0 & &\cdots & & & &  &0 & [1 & 2  & 2^3 & 2^4] \end{bmatrix}$$
-> represents the inverse operation, such that $\mathbf{G}_2 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$.
+> represents the inverse operation, such that $$\mathbf{G}_2 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$$.
 
 #### 1.2 Ajtai Commitment
 

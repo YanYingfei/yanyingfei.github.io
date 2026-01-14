@@ -23,9 +23,9 @@ For a vector $\mathbf{t} \in \mathcal{R}_q^n$, the symbol $\mathbf{G}_n^{-1}(\ma
 The operations $\mathbf{G}_n$ and $\mathbf{G}_n^{-1}$ are inverses of each other, satisfying $\mathbf{G}_n \mathbf{G}_n^{-1}(\mathbf{t}) = \mathbf{t}$.
 
 > For example, let $$\mathcal{R}_{10} = \mathbb{Z}_{10} [X]/(X^3+1)$$, and $$\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$$. 
-> Define $$\delta = \lceil \log 10 \rceil = 4$$.
+> Define $$\delta = \lceil \log 10 \rceil = 4.$$
 > Then, $$\mathbf{G}_3^{-1}(\mathbf{t})$$ is obtained by first writing all coefficients $(6,2,5)$ and $(4,9,2)$ in binary form $(0110~0010 ~0101~ 0100~ 1001~ 0010)$, and then packing them into a vector over $$\mathcal{R}_q$$ (3 bits as a group), resulting in 
-> $$\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$0+X+0X^2, 0+X+0X^2,$$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$$.
+> $$\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$0+X+0X^2, 0+X+0X^2,$$ $$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$$.
 > Correspondingly, the matrix 
 > $$\mathbf{G}_3 = \begin{bmatrix} [1 & 2  & 2^3 & 2^4] & 0 &&&&&&\cdots&0\\ 0 & & \cdots &0 & [1 & 2  & 2^3 & 2^4] &0 && \cdots & 0\\ 0 & &\cdots & & & &  &0 & [1 & 2  & 2^3 & 2^4] \end{bmatrix}$$
 > represents the inverse operation, such that $$\mathbf{G}_2 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$$.
@@ -110,7 +110,7 @@ $$f(x) = \sum_{i=0}^{N-1} f_i x^i = y$$
 Similar to Mercury (Breakdown), we can represent the evaluation process using matrix and vector multiplication:
 $$f(x) = [1~x~x^2~\cdots~x^{m-1}] \begin{bmatrix} f_0 & f_m & \cdots & f_{(r-1)m} \\ f_{1} & f_{m+1} &\cdots & f_{(r-1)m+1} \\ f_{2} & f_{m+2} &\cdots & f_{(r-1)m+2} \\ \vdots & \vdots & \ddots & \vdots \\ f_{m-1} & f_{2m-1} &\cdots & f_{N-1} \end{bmatrix} \begin{bmatrix} 1 \\ x^m \\ (x^m)^2\\ \vdots \\ (x^m)^{r-1} \end{bmatrix}.$$
 
- Therefore, if we define vectors $\mathbf{f}_i = [ f_{(i-1)m}, f_{(i-1)m+1}, \dots , f_{im-1}]^\top \in \mathcal{R}_q^m$ for $i=1, \dots, r$, which are formed by the coefficients of the polynomial $f$, then the commitment to $\mathbf{f}_1, \dots, \mathbf{f}_r \in \mathcal{R}_q^m$ is a commitment to the polynomial $f$.
+ Therefore, if we define vectors $$\mathbf{f}_i = [ f_{(i-1)m}, f_{(i-1)m+1}, \dots , f_{im-1}]^\top \in \mathcal{R}_q^m$$ for $$i=1, \dots, r$$, which are formed by the coefficients of the polynomial $f$, then the commitment to $$\mathbf{f}_1, \dots, \mathbf{f}_r \in \mathcal{R}_q^m$$ is a commitment to the polynomial $f$.
 
 Now, let's define the vectors $\mathbf{a}(x)^\top = [1~x~x^2~\cdots~x^{m-1}]$ and $\mathbf{b}(x^m)^\top = \begin{bmatrix} 1 ~ x^m ~\dots ~ (x^m)^{r-1} \end{bmatrix}$. The evaluation of polynomial $f$ can be expressed as:
 $$f(x) = \mathbf{a}(x)^\top [\mathbf{f}_1 ~ \cdots ~\mathbf{f}_r] \mathbf{b}(x^m).$$
@@ -137,7 +137,7 @@ Assume the public parameters of the protocol are the commitment keys $\mathbf{A,
 
 2.  The verifier selects a random challenge vector $\mathbf{c} = (c_1, \dots, c_r)^\top \in \mathcal{R}_q^r$ and sends it to the prover.
 
-3.  The prover sends the intermediate commitment values $(\hat{\mathbf{t}}_1, \dots, \hat{\mathbf{t}}_r)$ and uses $\mathbf{c}$ to compute a linear combination of the $\mathbf{s}_i$: $\mathbf{z} := \sum_{i=1}^r \mathbf{s}_i c_i = [\mathbf{s}_1 ~ \cdots~ \mathbf{s}_r] \mathbf{c} \in \mathcal{R}_q^{m\delta}$.
+3.  The prover sends the intermediate commitment values $$(\hat{\mathbf{t}}_1, \dots, \hat{\mathbf{t}}_r)$$ and uses $\mathbf{c}$ to compute a linear combination of the $$\mathbf{s}_i$$: $$\mathbf{z} := \sum_{i=1}^r \mathbf{s}_i c_i = [\mathbf{s}_1 ~ \cdots~ \mathbf{s}_r] \mathbf{c} \in \mathcal{R}_q^{m\delta}$$.
 
 Finally, the verifier uses all the information sent by the prover, $\mathbf{w}, \hat{\mathbf{t}}_i, \mathbf{z}$, to check if the following equations hold:
 

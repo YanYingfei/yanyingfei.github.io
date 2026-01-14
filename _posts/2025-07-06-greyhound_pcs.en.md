@@ -156,6 +156,7 @@ The first equation essentially verifies the second half of the polynomial evalua
 $$f(x) = \mathbf{a}(x)^\top[\mathbf{f}_1 ~ \cdots ~\mathbf{f}_r] \mathbf{b}(x^m) = \mathbf{w}^\top \mathbf{b}(x^m) = y.$$
 
 The second equation, with the participation of the challenge vector $\mathbf{c}$, verifies the correctness of the first half of the evaluation:
+
 $$
 \begin{align*} \mathbf{w}^\top \mathbf{c} &= \mathbf{a}(x)^\top [\mathbf{f}_1 ~ \cdots ~\mathbf{f}_r] \mathbf{c} \\ & = \mathbf{a}(x)^\top [\mathbf{G}_m\mathbf{s}_1~ \cdots ~\mathbf{G}_m\mathbf{s}_r] \mathbf{c} \\
 & = \mathbf{a}(x)^\top \mathbf{G}_m \sum_{i=1}^r \mathbf{s}_i c_i \\
@@ -164,6 +165,7 @@ $$
 $$
 
 The third equation verifies the correctness of the inner commitment:
+
 $$
 \begin{align*} \mathbf{Az} & = \mathbf{A} \sum_{i=1}^r \mathbf{s}_i c_i = \sum_{i=1}^r c_i (\mathbf{A s}_i) \\ &= \sum_{i=1}^r c_i \mathbf{t}_i = \sum_{i=1}^r c_i\mathbf{G}_n(\hat{\mathbf{t}}_i). \\
 \end{align*}
@@ -244,7 +246,10 @@ This means a Greyhound verifier can check if $F(U) = V$ holds by checking if the
 
 #### Case 2: $N' > d$
 
-Let's assume $N' = k \cdot d$ for some integer $k$. The coefficients of $F$, $(F_0, \ldots, F_{N'-1})$, will be packed into $k$ elements of $\mathcal{R}_q$, $f_0, f_1, \dots, f_{k-1} \in \mathcal{R}_q$. Let's say $N=k$. The evaluation method for the polynomial $f(x)$ is similar to the case when $N' < d$.
+Let's assume $N' = k \cdot d$ for some integer $k$. 
+The coefficients of $F$, $(F_0, \ldots, F_{N'-1})$, will be packed into $k$ elements of $\mathcal{R}_q$, $f_0, f_1, \dots, f_{k-1} \in \mathcal{R}_q$. 
+Let's say $$N=k$$. 
+The evaluation method for the polynomial $f(x)$ is similar to the case when $$N' < d$$.
 
 We pack the coefficients of $F$ into $(f_0, f_1, \dots, f_{N-1})$ and the powers of $U$ into evaluation points $(x_0, x_1, \dots, x_{N-1})$ as follows:
 
@@ -253,13 +258,18 @@ f_i = \sum_{j=0}^{d-1} F_{id+j}X^j \quad \text{and} \quad x_i = \sum_{j=0}^{d-1}
 $$
 
 Then we define the evaluation in $\mathcal{R}_q$ as the sum of products:
+
 $$
 y = \sum_{i=0}^{N-1} f_i \cdot \sigma(x_i)
 $$
 
 The multiplication $f_i \cdot \sigma(x_i)$ will store the partial sum $\sum_{j=0}^{d-1} F_{id+j}U^{id+j}$ in its constant term, similar to the previous discussion.
 
-Since addition in $$\mathcal{R}_q$$ is coefficient-wise, the outer summation $$\sum_{i=0}^{N-1} f_i \cdot \sigma(x_i)$$ will sum up the constant terms. The constant term of the final result $y$ will be:
+Since addition in $$\mathcal{R}_q$$ 
+is coefficient-wise, the outer summation 
+$$\sum_{i=0}^{N-1} f_i \cdot \sigma(x_i)$$ 
+will sum up the constant terms. 
+The constant term of the final result $y$ will be:
 $$
 \text{const}(y) = \sum_{i=0}^{N-1} \text{const}(f_i \cdot \sigma(x_i)) = \sum_{i=0}^{N-1} \sum_{j=0}^{d-1} F_{id+j}U^{id+j} = \sum_{k=0}^{N'-1} F_k U^k = V
 $$

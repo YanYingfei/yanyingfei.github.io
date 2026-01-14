@@ -183,6 +183,7 @@ $$
 $$
 
 For example, for $a = a_0 + \sum_{i=1}^{d-1} a_i X^i \in \mathcal{R}_q$, we have
+
 $$
 \sigma(a) = a_0 + \sum_{i=1}^{d-1} a_i X^{-i} \in \mathcal{R}_q
 $$
@@ -198,6 +199,7 @@ $$
 $$
 
 Let's clarify the following notations: a polynomial over $\mathbb{F}_q$ is denoted by
+
 $$
 F(U) = \sum_{i=0}^{N'-1} F_i U^i = V \in \mathbb{F}_q
 $$
@@ -243,6 +245,7 @@ This means a Greyhound verifier can check if $F(U) = V$ holds by checking if the
 Let's assume $N' = k \cdot d$ for some integer $k$. The coefficients of $F$, $(F_0, \ldots, F_{N'-1})$, will be packed into $k$ elements of $\mathcal{R}_q$, $f_0, f_1, \dots, f_{k-1} \in \mathcal{R}_q$. Let's say $N=k$. The evaluation method for the polynomial $f(x)$ is similar to the case when $N' < d$.
 
 We pack the coefficients of $F$ into $(f_0, f_1, \dots, f_{N-1})$ and the powers of $U$ into evaluation points $(x_0, x_1, \dots, x_{N-1})$ as follows:
+
 $$
 f_i = \sum_{j=0}^{d-1} F_{id+j}X^j \quad \text{and} \quad x_i = \sum_{j=0}^{d-1} (U^{id+j}) X^j
 $$
@@ -254,7 +257,7 @@ $$
 
 The multiplication $f_i \cdot \sigma(x_i)$ will store the partial sum $\sum_{j=0}^{d-1} F_{id+j}U^{id+j}$ in its constant term, similar to the previous discussion.
 
-Since addition in $\mathcal{R}_q$ is coefficient-wise, the outer summation $\sum_{i=0}^{N-1} f_i \cdot \sigma(x_i)$ will sum up the constant terms. The constant term of the final result $y$ will be:
+Since addition in $$\mathcal{R}_q$$ is coefficient-wise, the outer summation $$\sum_{i=0}^{N-1} f_i \cdot \sigma(x_i)$$ will sum up the constant terms. The constant term of the final result $y$ will be:
 $$
 \text{const}(y) = \sum_{i=0}^{N-1} \text{const}(f_i \cdot \sigma(x_i)) = \sum_{i=0}^{N-1} \sum_{j=0}^{d-1} F_{id+j}U^{id+j} = \sum_{k=0}^{N'-1} F_k U^k = V
 $$

@@ -25,7 +25,9 @@ The operations $\mathbf{G}_n$ and $\mathbf{G}_n^{-1}$ are inverses of each other
 > For example, let $$\mathcal{R}_{10} = \mathbb{Z}_{10} [X]/(X^3+1)$$, and $$\mathbf{t} = (t_1, t_2) = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$$. 
 > Define $$\delta = \lceil \log 10 \rceil = 4.$$
 > Then, $$\mathbf{G}_3^{-1}(\mathbf{t})$$ is obtained by first writing all coefficients $(6,2,5)$ and $(4,9,2)$ in binary form $(0110~0010 ~0101~ 0100~ 1001~ 0010)$, and then packing them into a vector over $$\mathcal{R}_q$$ (3 bits as a group), resulting in 
-> $$\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$0+X+0X^2, 0+X+0X^2,$$ $$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$$.
+> $$\mathbf{G}_3^{-1}(\mathbf{t}) = \hat{\mathbf{t}} = (0+X+X^2, 0+0X+0X^2, 1+0X+0X^2, 1+0X+1X^2,$$
+> $$0+X+0X^2, 0+X+0X^2,$$ 
+> $$0+X+0X^2, 0+X+0X^2)\in \mathcal{R}^{2 \delta}$$.
 > Correspondingly, the matrix 
 > $$\mathbf{G}_3 = \begin{bmatrix} [1 & 2  & 2^3 & 2^4] & 0 &&&&&&\cdots&0\\ 0 & & \cdots &0 & [1 & 2  & 2^3 & 2^4] &0 && \cdots & 0\\ 0 & &\cdots & & & &  &0 & [1 & 2  & 2^3 & 2^4] \end{bmatrix}$$
 > represents the inverse operation, such that $$\mathbf{G}_2 \hat{\mathbf{t}} = \mathbf{t} = (6+2X+5X^2, 4+9X+2X^2) \in \mathcal{R}_{10}^2$$.

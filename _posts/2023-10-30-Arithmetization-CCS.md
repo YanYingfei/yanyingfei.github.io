@@ -61,10 +61,16 @@ An AIR structure-instance tuple $(\mathcal{S}, x)$ is satisfied by the witness $
 
 
 ### Discussion
-From my point of view, CCS is not a 'new' arithmetization of circuits but is a generalization of current arithmetizations. 
-This kind of generalization might not effect much for specific circuits, because different circuits have their own suitable arithmetizations. So I'm not sure whether it has a more important role in SNARKs. 
-It seems that PCD and folding schemes from CCS can combine different arithmetizations and thus can support all the arithmetic circuits since CCS can be converted to R1CS, Plonkish, and AIR. 
-However, as any arithmetic circuit can be represented to R1CS, if there exists a PCD supporting R1CS, then this PCD could also support all the arithmetic circuits.
+CCS is not a 'new' arithmetization of circuits but rather a unifying generalization of existing arithmetizations. While this generalization might not provide significant benefits for homogeneous circuits (where a single arithmetization is optimal), its true value lies in **composability and modularity**.
+
+The key insight is that while R1CS is theoretically universal, **efficiency matters significantly in practice**. Different computation types have natural representations that lead to dramatically different proof sizes and proving times. CCS enables:
+
+1. **Heterogeneous composition**: Real-world applications often combine different types of computations (hash functions work well in AIR, arithmetic in R1CS, lookup tables in Plonkish). CCS allows each subcircuit to use its most efficient representation within a unified proof system.
+
+2. **Preserved native efficiency**: Rather than forcing all computations through a single arithmetization like R1CS (which can be inefficient for certain operations), CCS maintains the efficiency of specialized representations.
+
+3. **Flexible proof aggregation**: Modern applications increasingly need to verify proofs from different systems (zkSync's Plonkish, StarkNet's AIR) or combine recursive computations with different constraint types.
+
 
 
 ---

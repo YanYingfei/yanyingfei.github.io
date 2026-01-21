@@ -193,5 +193,6 @@ Instantiate Hypernova using lattice-based tools (additively homomorphic commitme
     - fold 
 
 We will go over the details next time.
+
 ---
 

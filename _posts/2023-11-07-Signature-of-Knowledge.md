@@ -138,3 +138,5 @@ The security proofs refer to the corresponding literature.
 1. <p name = "ref1"> Melissa Chase and Anna Lysyanskaya. On Signature of Knowledge. Cryptology ePrint Archive, Paper 2006/184.</p>
 
 2. <p name = "ref2"> Jens Groth and Mary Maller. Snarky Signatures: Minimal Signatures of Knowledge from Simulation-Extractable SNARKs. Cryptology ePrint Archive, Paper 2017/540. </p>
+
+---

@@ -226,4 +226,14 @@ To reduce it, the verifier checks:
 
 ![Folding Process](/post-src/latticefoldplus/e74b72aba52127a6881049ab1841ac5f.jpg)
 
+---
+Reference:
+
+[1] Dan Boneh and Binyi Chen. LatticeFold: A Lattice-based Folding Scheme and its Applications to Succinct Proof Systems. <https://eprint.iacr.org/2024/257>.
+
+[2] Abhiram Kothapalli and Srinath Setty. HyperNova: Recursive arguments for customizable constraint systems. <https://eprint.iacr.org/2023/573>.
+
+[3] Dan Boneh and Binyi Chen. LatticeFold+: Faster, Simpler, Shorter Lattice-Based Folding for Succinct Proof Systems. <https://eprint.iacr.org/2025/247>.
+
+---
 

@@ -77,3 +77,5 @@ The key insight is that while R1CS is theoretically universal, **efficiency matt
 1. <p name = "ref1"> Tianyu Zheng, Shang Gao, Yu Guo and Bin Xiao, KiloNova: Non-Uniform PCD with Zero-Knowledge Property from Generic Folding Schemes, Cryptology ePrint Archive, Paper 2023/1579.</p>
 2. <p name = "ref2"> Srinath Setty, Justin Thaler and Riad Wahby, Customizable constraint systems for succinct arguments, Cryptology ePrint Archive, Paper 2023/552.</p>
 3. <p name = "ref3"> Ariel Gabizon and Zachary J.  Williamson, plookup: A simplified polynomial protocol for lookup tables, Cryptology ePrint Archive, Paper 2020/315.</p>
+
+---

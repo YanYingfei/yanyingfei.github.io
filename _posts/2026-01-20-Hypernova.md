@@ -195,4 +195,8 @@ Instantiate Hypernova using lattice-based tools (additively homomorphic commitme
 We will go over the details next time.
 
 ---
+Reference:
 
+[1] Abhiram Kothapalli and Srinath Setty. HyperNova: Recursive arguments for customizable constraint systems. <https://eprint.iacr.org/2023/573>.
+
+---

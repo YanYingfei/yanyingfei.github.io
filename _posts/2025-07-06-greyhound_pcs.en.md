@@ -296,3 +296,5 @@ Furthermore, by applying Labrador's recursive proof techniques, the proof size c
 ---
 **Reference**
 [1] Ngoc Khanh Nguyen, Gregor Seiler: Greyhound: Fast Polynomial Commitments from Lattices. CRYPTO (10) 2024: 243-275.
+
+---

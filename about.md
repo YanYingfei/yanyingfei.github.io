@@ -8,9 +8,9 @@ permalink: /about/
 
 <div style="flex: 1; min-width: 300px;">
 
-Hi, I'm Yingfei. I'm interested zero-knowledge proofs and lattice-based cryptography. 
+<p>Hi, I'm Yingfei. I'm interested in zero-knowledge proofs and lattice-based cryptography.</p>
 
-You can find me on [GitHub](https://github.com/yingfeii) and [X](http://x.com/YingfeiYan).
+<p>You can find me on <a href="https://github.com/yingfeii">GitHub</a> and <a href="https://x.com/YingfeiYan">X</a>.</p>
 
 </div>
 

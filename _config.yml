@@ -1,4 +1,4 @@
-title: Yingfei
+title: Posts
 author: Yingfei
  # name: Yingfei
  # email: yingfeiyan1996@gmail.com
@@ -50,7 +50,7 @@ minima:
 #   - about.md
 header_pages:
 - about.md
-- posts.md
+# - posts.md
 
 # Set to `true` to show excerpts on the homepage.
 # show_excerpts: false

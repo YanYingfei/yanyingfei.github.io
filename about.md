@@ -8,7 +8,13 @@ permalink: /about/
 
 <div style="flex: 1; min-width: 300px;">
 
-<p>Hi, I'm Yingfei. I'm interested in zero-knowledge proofs and lattice-based cryptography.</p>
+<p>Hi, I'm Yingfei. </p>
+
+<br>
+
+<p> I'm interested in zero-knowledge proofs and lattice-based cryptography.</p>
+
+<br>
 
 <p>You can find me on <a href="https://github.com/yingfeii">GitHub</a> and <a href="https://x.com/YingfeiYan">X</a>.</p>
 
@@ -17,5 +23,7 @@ permalink: /about/
 <div style="flex-shrink: 0; width: 250px; max-width: 100%;">
   <img src="/assets/imageaboutme.jpg" alt="Yingfei" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 </div>
+
+<br>
 
 </div>

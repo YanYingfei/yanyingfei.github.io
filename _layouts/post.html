@@ -27,6 +27,25 @@ layout: default
     {{ content }}
   </div>
 
+  <nav class="blog-pagination d-flex justify-content-between mt-5 pt-4 border-top">
+    <div class="prev-post">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" rel="prev">
+          <span class="text-muted">← Previous</span><br>
+          <span>{{ page.previous.title }}</span><br>
+        </a>
+      {% endif %}
+    </div>
+    <div class="next-post text-right">
+      {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" rel="next">
+          <span class="text-muted">Next →</span><br>
+          <span>{{ page.next.title }}</span><br>
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+  <br>
   {% if site.disqus.shortname %}
     {% include disqus_comments.html %}
   {% endif %}

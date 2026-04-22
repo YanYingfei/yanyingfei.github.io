@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Folding scheme in SALSAA"
+title: "Folding scheme: Neo and SuperNeo"
 categories: snark
 author: Yingfei
 meta: "Springfield"
@@ -152,3 +152,14 @@ work natively over small prime fields, including popular SNARK-friendly fields s
 
 - low recursion overheads:
 The recursive verifier circuit should be small enough that the per-step prover cost of IVC remains practical. More broadly, folding schemes that rely on ring sum-check techniques—such as LatticeFold and SALSAA — inherit high recursion overheads because the recursive verifier must hash ring elements rather than field elements.
+
+
+--
+
+#### Reference:
+
+[1] Wilson Nguyen and Srinath Setty. Neo: Lattice-based folding scheme for CCS over small fields and pay-per-bit commitments. <https://eprint.iacr.org/2025/294>.
+
+[2] Wilson Nguyen and Srinath Setty. Neo and SuperNeo: Post-quantum folding with pay-per-bit costs over small fields. <https://eprint.iacr.org/2026/242>.
+
+---
